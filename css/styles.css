@@ -1,0 +1,932 @@
+/* ============================================================
+   Winesecrets — Use RO for Lo or No — prototype styles
+   Brand tokens sampled from winesecrets.com production CSS
+   (2026-08-11). Re-verify values during WordPress integration.
+   All campaign classes are namespaced ws-nolo- per spec §41.
+   ============================================================ */
+
+:root {
+  /* Sampled from production site */
+  --ws-brand-primary: #9b3741;        /* Winesecrets burgundy (logo, h3) */
+  --ws-brand-primary-dark: #7e2c35;
+  --ws-brand-secondary: #3c3950;      /* heading slate */
+  --ws-text: #5f727f;                 /* body slate-gray */
+  --ws-text-muted: #64757f;           /* darkened from sampled #99a9b5 to pass 4.5:1 AA on white and #f4f6f7 */
+  --ws-muted-on-dark: #99a9b5;        /* original sampled muted — dark footer only */
+  --ws-bg: #ffffff;
+  --ws-bg-soft: #f4f6f7;
+  --ws-bg-softer: #f0f3f2;
+  --ws-border: #dfe5e8;
+  --ws-border-strong: #d4dee1;
+  --ws-accent: #9b3741;
+  --ws-focus: #3858e9;                /* accessible focus ring */
+
+  --font-heading: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Source Sans 3", "Source Sans Pro", Arial, sans-serif;
+
+  --ws-container: 1220px;
+  --ws-reading: 740px;
+  --ws-radius: 5px;
+  --ws-shadow: 0 2px 12px rgba(60, 57, 80, 0.07);
+  --ws-section-pad: clamp(36px, 5.5vw, 68px); /* compressed from 48–104px to shorten total scroll */
+}
+
+/* ---------- reset-ish ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+/* JS-managed hidden must always win over layout display rules
+   (e.g. .ws-nolo-subfields--row { display:flex }). */
+[hidden] { display: none !important; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.001s !important; transition-duration: 0.001s !important; }
+}
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  line-height: 1.65;
+  color: var(--ws-text);
+  background: var(--ws-bg);
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; height: auto; }
+h1, h2, h3, h4 { font-family: var(--font-heading); line-height: 1.2; margin: 0 0 0.6em; }
+h2 {
+  color: var(--ws-brand-secondary);
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: clamp(1.5rem, 3.4vw, 2.25rem);
+  letter-spacing: 0.01em;
+}
+h3 {
+  color: var(--ws-brand-primary);
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: clamp(1.05rem, 2.2vw, 1.4rem);
+}
+h4 { color: var(--ws-brand-secondary); text-transform: uppercase; font-weight: 700; font-size: 1.05rem; letter-spacing: 0.04em; }
+p { margin: 0 0 1em; }
+a { color: var(--ws-brand-primary); }
+a:hover { color: var(--ws-brand-primary-dark); }
+ul { padding-left: 1.3em; }
+
+:focus-visible {
+  outline: 3px solid var(--ws-focus);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.ws-nolo-visually-hidden {
+  position: absolute; width: 1px; height: 1px;
+  margin: -1px; padding: 0; border: 0;
+  clip: rect(0 0 0 0); overflow: hidden; white-space: nowrap;
+}
+.ws-nolo-skip {
+  position: absolute; left: 8px; top: -48px;
+  background: var(--ws-brand-secondary); color: #fff;
+  padding: 10px 18px; z-index: 100; border-radius: 0 0 4px 4px;
+  transition: top 0.15s ease;
+}
+.ws-nolo-skip:focus { top: 0; color: #fff; }
+
+/* ---------- layout ---------- */
+.ws-nolo-container { max-width: var(--ws-container); margin: 0 auto; padding: 0 clamp(18px, 4vw, 40px); }
+.ws-nolo-container--narrow { max-width: 900px; }
+.ws-nolo-section { padding: var(--ws-section-pad) 0; }
+.ws-nolo-section--soft { background: var(--ws-bg-soft); }
+.ws-nolo-center { text-align: center; margin-top: 1.5rem; }
+.ws-nolo-lead { font-size: 1.22rem; max-width: var(--ws-reading); }
+.ws-nolo-prose { max-width: var(--ws-reading); }
+.ws-nolo-microcopy { font-size: 0.85rem; color: var(--ws-text-muted); max-width: var(--ws-reading); margin-top: 1.2rem; }
+.ws-nolo-eyebrow {
+  font-family: var(--font-heading);
+  font-size: 0.8rem; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--ws-brand-primary);
+  margin-bottom: 1rem;
+}
+.ws-nolo-pullquote {
+  font-family: var(--font-heading);
+  color: var(--ws-brand-secondary);
+  font-size: clamp(1.2rem, 2.6vw, 1.6rem);
+  font-weight: 600;
+  border-left: 4px solid var(--ws-brand-primary);
+  padding-left: 1rem;
+  margin: 1.6rem 0 2rem;
+  max-width: var(--ws-reading);
+}
+.ws-nolo-subtitle { margin-top: -0.4rem; margin-bottom: 1.4rem; }
+.ws-nolo-lead--center { margin-left: auto; margin-right: auto; }
+
+/* ---------- buttons ---------- */
+.ws-nolo-btn {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  border-radius: var(--ws-radius);
+  border: 2px solid transparent;
+  padding: 14px 26px;
+  min-height: 44px;
+  cursor: pointer;
+  transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+}
+.ws-nolo-btn--primary { background: var(--ws-brand-primary); color: #fff; border-color: var(--ws-brand-primary); }
+.ws-nolo-btn--primary:hover { background: var(--ws-brand-primary-dark); border-color: var(--ws-brand-primary-dark); color: #fff; }
+.ws-nolo-btn--secondary { background: transparent; color: var(--ws-brand-secondary); border-color: var(--ws-brand-secondary); }
+.ws-nolo-btn--secondary:hover { background: var(--ws-brand-secondary); color: #fff; }
+.ws-nolo-btn--ghost { background: transparent; color: var(--ws-brand-primary); border-color: var(--ws-border-strong); font-weight: 600; }
+.ws-nolo-btn--ghost:hover { border-color: var(--ws-brand-primary); }
+.ws-nolo-btn--text { background: none; border: none; color: var(--ws-brand-primary); padding: 10px 0; min-height: 44px; }
+.ws-nolo-btn--text:hover { color: var(--ws-brand-primary-dark); text-decoration: underline; }
+.ws-nolo-btn--sm { padding: 9px 16px; min-height: 44px; font-size: 0.78rem; }
+
+/* ---------- header ---------- */
+.ws-nolo-header { border-bottom: 1px solid var(--ws-border); background: var(--ws-bg); }
+.ws-nolo-header__inner {
+  max-width: var(--ws-container); margin: 0 auto;
+  padding: 14px clamp(18px, 4vw, 40px);
+  display: flex; align-items: center; gap: 24px; flex-wrap: wrap;
+}
+.ws-nolo-header__logo img { display: block; width: 160px; height: auto; }
+.ws-nolo-header__nav { margin-left: auto; }
+.ws-nolo-header__nav ul {
+  list-style: none; display: flex; align-items: center;
+  gap: clamp(10px, 1.8vw, 26px); margin: 0; padding: 0; flex-wrap: wrap;
+}
+.ws-nolo-header__nav a:not(.ws-nolo-btn) {
+  font-size: 1rem; color: var(--ws-text); text-decoration: none; padding: 8px 2px; display: inline-block;
+}
+.ws-nolo-header__nav a:not(.ws-nolo-btn):hover,
+.ws-nolo-header__nav a[aria-current="page"] { color: var(--ws-brand-primary); }
+.ws-nolo-header__toggle { display: none; }
+
+@media (max-width: 880px) {
+  .ws-nolo-header__toggle {
+    display: inline-flex; align-items: center; gap: 8px;
+    margin-left: auto;
+    background: none; border: 1px solid var(--ws-border-strong);
+    border-radius: var(--ws-radius); padding: 10px 14px;
+    font-family: var(--font-heading); font-size: 0.85rem;
+    text-transform: uppercase; letter-spacing: 0.06em; color: var(--ws-brand-secondary);
+    cursor: pointer; min-height: 44px;
+  }
+  .ws-nolo-header__toggle-bar {
+    display: inline-block; width: 18px; height: 2px; background: currentColor;
+    box-shadow: 0 -5px 0 currentColor, 0 5px 0 currentColor;
+  }
+  .ws-nolo-header__nav { display: none; width: 100%; }
+  .ws-nolo-header__nav.is-open { display: block; }
+  .ws-nolo-header__nav ul { flex-direction: column; align-items: stretch; gap: 0; padding: 8px 0; }
+  .ws-nolo-header__nav a:not(.ws-nolo-btn) { padding: 12px 4px; border-top: 1px solid var(--ws-border); display: block; }
+  .ws-nolo-header__nav .ws-nolo-btn { margin: 12px 0 4px; }
+}
+
+/* ---------- hero ---------- */
+.ws-nolo-hero { padding: clamp(36px, 5vw, 64px) 0 clamp(28px, 4vw, 48px); }
+.ws-nolo-hero__grid {
+  display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: clamp(28px, 5vw, 72px); align-items: center;
+}
+.ws-nolo-hero__title {
+  color: var(--ws-brand-secondary);
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: clamp(1.5rem, 4.6vw, 3.2rem);
+  letter-spacing: 0.01em;
+  margin-bottom: 0.35em;
+  white-space: nowrap; /* keep "USE RO FOR LO OR NO" on one line */
+}
+.ws-nolo-hero__subhead {
+  font-family: var(--font-heading);
+  color: var(--ws-brand-primary);
+  font-size: clamp(1.15rem, 2.6vw, 1.5rem);
+  font-weight: 600;
+  margin-bottom: 1.2em;
+}
+.ws-nolo-hero__ctas { display: flex; gap: 14px; flex-wrap: wrap; margin: 1.6rem 0 0.8rem; }
+.ws-nolo-hero__ctas--center { justify-content: center; }
+
+.ws-nolo-hero__visual { display: flex; justify-content: center; }
+.ws-nolo-hero__device {
+  background: var(--ws-bg-soft);
+  border: 1px solid var(--ws-border);
+  border-radius: 10px;
+  box-shadow: var(--ws-shadow);
+  padding: clamp(28px, 4vw, 52px) clamp(32px, 5vw, 64px);
+  text-align: center;
+  min-width: min(320px, 100%);
+}
+.ws-nolo-hero__device-row {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  color: var(--ws-text-muted);
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  letter-spacing: 0.14em;
+  animation: ws-nolo-fadein 0.6s ease both;
+}
+.ws-nolo-hero__device-row:nth-of-type(2) { animation-delay: 0.25s; }
+.ws-nolo-hero__device-row:nth-of-type(3) { animation-delay: 0.5s; }
+.ws-nolo-hero__device-mark {
+  color: var(--ws-brand-primary);
+  font-weight: 800;
+  font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+  letter-spacing: 0.06em;
+  vertical-align: middle;
+}
+.ws-nolo-hero__device-arrow { color: var(--ws-border-strong); font-size: 1.3rem; line-height: 1.6; }
+.ws-nolo-hero__device-caption {
+  margin-top: 18px; padding-top: 14px;
+  border-top: 1px solid var(--ws-border-strong);
+  font-family: var(--font-heading);
+  font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--ws-text-muted);
+}
+@keyframes ws-nolo-fadein { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+/* ---------- welcome-back callout ---------- */
+.ws-nolo-welcome {
+  margin-top: 28px;
+  border: 1px solid var(--ws-border-strong);
+  border-left: 4px solid var(--ws-brand-primary);
+  border-radius: var(--ws-radius);
+  background: var(--ws-bg-soft);
+  padding: 16px 20px;
+  display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
+}
+.ws-nolo-welcome p { margin: 0; font-family: var(--font-heading); font-weight: 600; color: var(--ws-brand-secondary); }
+
+/* ---------- cards ---------- */
+.ws-nolo-cardgrid { display: grid; gap: clamp(18px, 2.5vw, 28px); margin-top: 2rem; }
+.ws-nolo-cardgrid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.ws-nolo-card {
+  background: var(--ws-bg);
+  border: 1px solid var(--ws-border);
+  border-radius: var(--ws-radius);
+  box-shadow: var(--ws-shadow);
+  padding: 26px 24px;
+}
+.ws-nolo-card h3 { font-size: 1rem; font-weight: 700; letter-spacing: 0.06em; }
+.ws-nolo-card p { margin-bottom: 0; font-size: 1rem; }
+
+@media (max-width: 720px) {
+  .ws-nolo-cardgrid--3 { grid-template-columns: 1fr; }
+}
+
+/* ---------- "Why RO?" optional aside (boxed, between hero and market) ---------- */
+.ws-nolo-aside { padding: 0 0 clamp(28px, 4vw, 44px); }
+.ws-nolo-collapse.ws-nolo-collapse--aside {
+  background: var(--ws-bg-soft);
+  border: 1px solid var(--ws-border-strong);
+  border-left: 4px solid var(--ws-brand-primary);
+  border-radius: var(--ws-radius);
+  padding: 4px 22px;
+  max-width: min(820px, 100%); /* ~2/3 of the 1220px container */
+  margin: 0 auto; /* centered */
+}
+.ws-nolo-collapse--aside > summary { padding: 12px 0; align-items: center; }
+.ws-nolo-collapse--aside > summary h2 {
+  font-size: 1.05rem;
+  letter-spacing: 0.06em;
+}
+.ws-nolo-collapse--aside .ws-nolo-collapse__hint { font-size: 0.8rem; color: var(--ws-text-muted); }
+.ws-nolo-collapse--aside .ws-nolo-collapse__body { padding-bottom: 18px; }
+.ws-nolo-collapse--aside .ws-nolo-diagram li { background: var(--ws-bg); }
+.ws-nolo-collapse--aside .ws-nolo-callout { background: var(--ws-bg); }
+
+/* ---------- collapsible section ("Why RO?") ---------- */
+.ws-nolo-collapse { max-width: none; }
+.ws-nolo-collapse > summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap;
+  min-height: 44px;
+}
+.ws-nolo-collapse > summary::-webkit-details-marker { display: none; }
+.ws-nolo-collapse > summary h2 { margin: 0; }
+.ws-nolo-collapse > summary::after {
+  content: "▾";
+  color: var(--ws-brand-primary);
+  font-size: 1.2rem;
+  transition: transform 0.18s ease;
+  margin-left: auto;
+}
+.ws-nolo-collapse[open] > summary::after { transform: rotate(180deg); }
+.ws-nolo-collapse > summary:hover h2 { color: var(--ws-brand-primary); }
+.ws-nolo-collapse__hint {
+  font-family: var(--font-heading);
+  color: var(--ws-brand-primary);
+  text-transform: uppercase;
+  font-size: 0.95rem;
+}
+.ws-nolo-collapse__body { padding-top: 1.4rem; }
+
+/* ---------- target explorer ---------- */
+.ws-nolo-explorer { margin-top: 2rem; }
+.ws-nolo-explorer__controls { display: flex; flex-wrap: wrap; gap: 10px; }
+.ws-nolo-explorer__btn {
+  font-family: var(--font-heading);
+  font-weight: 700; font-size: 0.95rem; letter-spacing: 0.04em;
+  padding: 12px 20px; min-height: 44px; min-width: 44px;
+  background: var(--ws-bg);
+  color: var(--ws-brand-secondary);
+  border: 2px solid var(--ws-border-strong);
+  border-radius: var(--ws-radius);
+  cursor: pointer;
+  transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+}
+.ws-nolo-explorer__btn:hover { border-color: var(--ws-brand-primary); color: var(--ws-brand-primary); }
+.ws-nolo-explorer__btn[aria-pressed="true"] {
+  background: var(--ws-brand-primary);
+  border-color: var(--ws-brand-primary);
+  color: #fff;
+}
+.ws-nolo-explorer__panel { margin-top: 22px; }
+.ws-nolo-explorer__hint { color: var(--ws-text-muted); font-style: italic; }
+.ws-nolo-explorer__content {
+  background: var(--ws-bg);
+  border: 1px solid var(--ws-border);
+  border-radius: var(--ws-radius);
+  box-shadow: var(--ws-shadow);
+  padding: clamp(22px, 3vw, 34px);
+  max-width: 860px;
+  animation: ws-nolo-fadein 0.25s ease both;
+}
+.ws-nolo-explorer__content h3 { font-weight: 700; font-size: 1.15rem; }
+.ws-nolo-explorer__qtitle {
+  font-family: var(--font-heading);
+  font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--ws-text-muted); margin-bottom: 0.4rem;
+}
+.ws-nolo-explorer__content ul { margin: 0 0 1rem; }
+.ws-nolo-explorer__content li { margin-bottom: 0.25em; }
+.ws-nolo-explorer__next { margin-bottom: 0; }
+.ws-nolo-explorer__cta { margin-top: 20px; }
+
+/* ---------- test track (focal dark band) ---------- */
+.ws-nolo-testtrack { background: var(--ws-brand-secondary); color: #e6ebef; }
+.ws-nolo-eyebrow--ondark { color: #c9909a; }
+.ws-nolo-testtrack__title {
+  color: #fff;
+  font-size: clamp(1.9rem, 4.5vw, 3rem);
+  font-weight: 800;
+  margin-bottom: 0.5em;
+}
+.ws-nolo-testtrack__lead {
+  font-size: clamp(1.15rem, 2.4vw, 1.4rem);
+  line-height: 1.55;
+  max-width: 820px;
+  margin: 0 auto 2rem;
+}
+.ws-nolo-testtrack__lead a { color: #fff; }
+.ws-nolo-testtrack__lead a:hover { color: #c9909a; }
+.ws-nolo-testtrack__steps {
+  list-style: none; padding: 0;
+  margin: 0 auto 2.2rem;
+  display: flex; justify-content: center; align-items: stretch;
+  gap: clamp(10px, 2vw, 20px);
+  flex-wrap: wrap;
+}
+.ws-nolo-testtrack__steps li {
+  flex: 1 1 150px;
+  max-width: 210px;
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+  padding: 14px 10px;
+  border-top: 3px solid rgba(255, 255, 255, 0.18);
+  position: relative;
+}
+.ws-nolo-testtrack__steps li::after {
+  content: "→";
+  position: absolute; right: -14px; top: 18px;
+  color: #c9909a; font-size: 1.1rem;
+}
+.ws-nolo-testtrack__steps li:last-child::after { content: none; }
+.ws-nolo-testtrack__num {
+  font-family: var(--font-heading);
+  font-weight: 800; font-size: 0.85rem;
+  color: #c9909a; letter-spacing: 0.14em;
+}
+.ws-nolo-testtrack__steps strong {
+  font-family: var(--font-heading);
+  font-weight: 800; text-transform: uppercase;
+  font-size: clamp(1.15rem, 2.2vw, 1.5rem);
+  color: #fff; letter-spacing: 0.04em;
+}
+.ws-nolo-testtrack__steps small { font-size: 0.9rem; color: var(--ws-muted-on-dark); line-height: 1.35; }
+.ws-nolo-microcopy--ondark { color: var(--ws-muted-on-dark); margin: 1.2rem auto 0; text-align: center; }
+.ws-nolo-btn--lg { font-size: 1rem; padding: 18px 40px; }
+@media (max-width: 720px) {
+  .ws-nolo-testtrack__steps { gap: 6px; }
+  .ws-nolo-testtrack__steps li { flex: 1 1 100%; max-width: none; flex-direction: row; align-items: baseline; gap: 12px; border-top: none; border-bottom: 1px solid rgba(255, 255, 255, 0.14); padding: 12px 4px; text-align: left; }
+  .ws-nolo-testtrack__steps li::after { content: none; }
+  .ws-nolo-testtrack__steps small { margin-left: auto; text-align: right; }
+}
+
+/* ---------- process diagram ---------- */
+.ws-nolo-diagram {
+  list-style: none; padding: 0; margin: 2.2rem 0;
+  display: flex; align-items: stretch; flex-wrap: wrap; gap: 8px;
+}
+.ws-nolo-diagram li {
+  flex: 1 1 130px;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center;
+  background: var(--ws-bg);
+  border: 1px solid var(--ws-border-strong);
+  border-radius: var(--ws-radius);
+  padding: 16px 10px;
+  font-family: var(--font-heading);
+  font-size: 0.82rem; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--ws-brand-secondary);
+  position: relative;
+}
+.ws-nolo-diagram li:not(:last-child)::after {
+  content: "→";
+  position: absolute; right: -12px; top: 50%;
+  transform: translateY(-50%);
+  color: var(--ws-brand-primary);
+  font-size: 1rem; z-index: 1;
+}
+.ws-nolo-diagram li:last-child { background: var(--ws-brand-primary); border-color: var(--ws-brand-primary); color: #fff; }
+@media (max-width: 880px) {
+  .ws-nolo-diagram { flex-direction: column; }
+  .ws-nolo-diagram li:not(:last-child)::after {
+    content: "↓"; right: auto; left: 50%; top: auto; bottom: -16px;
+    transform: translateX(-50%);
+  }
+  .ws-nolo-diagram li { margin-bottom: 10px; }
+}
+
+.ws-nolo-callout {
+  border-left: 4px solid var(--ws-brand-primary);
+  background: var(--ws-bg);
+  border-radius: 0 var(--ws-radius) var(--ws-radius) 0;
+  padding: 16px 20px;
+  max-width: var(--ws-reading);
+  margin: 1.6rem 0;
+}
+.ws-nolo-callout p { margin: 0; font-family: var(--font-heading); font-weight: 600; color: var(--ws-brand-secondary); }
+
+/* ---------- details / accordion ---------- */
+.ws-nolo-details {
+  border: 1px solid var(--ws-border);
+  border-radius: var(--ws-radius);
+  background: var(--ws-bg);
+  margin-bottom: 10px;
+  max-width: 860px;
+}
+.ws-nolo-details summary {
+  cursor: pointer;
+  padding: 16px 20px;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--ws-brand-secondary);
+  list-style-position: inside;
+}
+.ws-nolo-details summary:hover { color: var(--ws-brand-primary); }
+.ws-nolo-details[open] summary { border-bottom: 1px solid var(--ws-border); }
+.ws-nolo-details > p, .ws-nolo-details > div { padding: 14px 20px; margin: 0; }
+.ws-nolo-details__body p { margin: 0 0 0.6em; }
+.ws-nolo-details__body p:last-child { margin-bottom: 0; }
+.ws-nolo-accordion { margin-top: 1.8rem; }
+
+/* ---------- FAQ ask-a-question box ---------- */
+.ws-nolo-ask { display: flex; gap: 10px; flex-wrap: wrap; margin: 1.8rem 0 1.2rem; }
+.ws-nolo-ask input {
+  flex: 1 1 300px;
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  color: var(--ws-brand-secondary);
+  background: var(--ws-bg);
+  border: 2px solid var(--ws-border-strong);
+  border-radius: var(--ws-radius);
+  padding: 13px 16px;
+  min-height: 52px;
+}
+.ws-nolo-ask input:focus { outline: 3px solid var(--ws-focus); outline-offset: 1px; border-color: var(--ws-brand-secondary); }
+.ws-nolo-ask input::placeholder { color: var(--ws-text-muted); }
+.ws-nolo-ask__results { max-width: 860px; }
+.ws-nolo-answer {
+  background: var(--ws-bg-soft);
+  border: 1px solid var(--ws-border);
+  border-left: 4px solid var(--ws-brand-primary);
+  border-radius: var(--ws-radius);
+  padding: 18px 22px;
+  margin-bottom: 12px;
+  animation: ws-nolo-fadein 0.2s ease both;
+}
+.ws-nolo-answer__label {
+  font-family: var(--font-heading);
+  font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--ws-text-muted);
+  margin-bottom: 0.3rem;
+}
+.ws-nolo-answer__label--related { margin: 1.1rem 0 0.5rem; }
+.ws-nolo-answer__q {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--ws-brand-secondary);
+  margin-bottom: 0.5rem;
+}
+.ws-nolo-answer p:last-of-type { margin-bottom: 0; }
+.ws-nolo-answer--miss .ws-nolo-btn { margin-top: 12px; }
+.ws-nolo-faq-contact {
+  margin: 0.9rem 0 0;
+  padding: 10px 14px;
+  background: var(--ws-bg);
+  border: 1px solid var(--ws-border);
+  border-left: 3px solid var(--ws-brand-primary);
+  border-radius: 0 var(--ws-radius) var(--ws-radius) 0;
+  font-size: 0.95rem;
+}
+.ws-nolo-answer .ws-nolo-faq-contact { background: var(--ws-bg); }
+.ws-nolo-details .ws-nolo-faq-contact { background: var(--ws-bg-soft); }
+.ws-nolo-faq-browse-title {
+  font-family: var(--font-heading);
+  font-size: 0.78rem; font-weight: 700;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--ws-text-muted);
+  margin: 2rem 0 0.8rem;
+}
+.ws-nolo-faqgroup {
+  border: 1px solid var(--ws-border);
+  border-radius: var(--ws-radius);
+  background: var(--ws-bg);
+  margin-bottom: 10px;
+  max-width: 860px;
+}
+.ws-nolo-faqgroup > summary {
+  cursor: pointer;
+  padding: 15px 20px;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--ws-brand-secondary);
+  list-style-position: inside;
+}
+.ws-nolo-faqgroup > summary:hover { color: var(--ws-brand-primary); }
+.ws-nolo-faqgroup__count {
+  display: inline-block;
+  margin-left: 10px;
+  min-width: 24px; text-align: center;
+  background: var(--ws-bg-soft);
+  border: 1px solid var(--ws-border-strong);
+  border-radius: 12px;
+  font-size: 0.75rem; font-weight: 600;
+  color: var(--ws-text);
+  padding: 1px 8px;
+}
+.ws-nolo-faqgroup[open] > summary { border-bottom: 1px solid var(--ws-border); }
+.ws-nolo-faqgroup__body { padding: 12px 14px; }
+.ws-nolo-faqgroup__body .ws-nolo-details { background: var(--ws-bg-soft); }
+
+/* ---------- planner band (burgundy showcase; planner itself opens in modal) ---------- */
+.ws-nolo-planner-band {
+  background: var(--ws-brand-primary);
+  color: #f3dfe1;
+  padding: clamp(32px, 5vw, 56px) 0;
+}
+.ws-nolo-eyebrow--onburgundy { color: #e8bcc2; }
+.ws-nolo-planner-band__title {
+  color: #fff;
+  font-size: clamp(1.7rem, 4vw, 2.6rem);
+  font-weight: 800;
+  margin-bottom: 0.4em;
+}
+.ws-nolo-planner-band__lead {
+  font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+  line-height: 1.55;
+  max-width: 720px;
+  margin: 0 auto 1.6rem;
+}
+.ws-nolo-planner-band__note { color: #e8bcc2; margin: 1rem auto 0; text-align: center; }
+.ws-nolo-btn--inverse { background: #fff; color: var(--ws-brand-primary); border-color: #fff; }
+.ws-nolo-btn--inverse:hover { background: var(--ws-brand-secondary); border-color: var(--ws-brand-secondary); color: #fff; }
+
+/* ---------- planner (lives inside the planner modal) ---------- */
+.ws-nolo-planner { margin-top: 1.2rem; }
+.ws-nolo-planner__storage-note {
+  background: #fdf3e7; border: 1px solid #eccf9d; border-radius: var(--ws-radius);
+  color: #7a5a1f; padding: 12px 16px; font-size: 0.95rem;
+}
+.ws-nolo-progress {
+  list-style: none; display: flex; gap: 4px;
+  padding: 0; margin: 0 0 26px; counter-reset: none;
+}
+.ws-nolo-progress__item {
+  flex: 1; text-align: center; position: relative;
+  padding: 10px 4px 12px;
+  border-bottom: 3px solid var(--ws-border-strong);
+  font-family: var(--font-heading);
+}
+.ws-nolo-progress__item.is-current { border-bottom-color: var(--ws-brand-primary); }
+.ws-nolo-progress__item.is-done { border-bottom-color: var(--ws-brand-secondary); }
+.ws-nolo-progress__num {
+  display: inline-block; width: 26px; height: 26px; line-height: 26px;
+  border-radius: 50%; background: var(--ws-border-strong); color: var(--ws-brand-secondary);
+  font-size: 0.8rem; font-weight: 700; margin-bottom: 4px;
+}
+.ws-nolo-progress__item.is-current .ws-nolo-progress__num { background: var(--ws-brand-primary); color: #fff; }
+.ws-nolo-progress__item.is-done .ws-nolo-progress__num { background: var(--ws-brand-secondary); color: #fff; }
+.ws-nolo-progress__label {
+  display: block; font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--ws-text);
+}
+.ws-nolo-progress__compact { display: none; }
+@media (max-width: 720px) {
+  .ws-nolo-progress { display: none; }
+  .ws-nolo-progress__compact {
+    display: block; font-family: var(--font-heading);
+    font-weight: 700; font-size: 0.85rem; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--ws-brand-primary);
+    margin: 0 0 18px;
+  }
+}
+
+.ws-nolo-step__title {
+  font-size: 1.2rem; margin-bottom: 1.2rem;
+  padding-bottom: 0.6rem; border-bottom: 1px solid var(--ws-border-strong);
+}
+.ws-nolo-step__title:focus { outline: none; }
+
+.ws-nolo-field { margin-bottom: 18px; max-width: 560px; }
+.ws-nolo-field label {
+  display: block;
+  font-family: var(--font-heading);
+  font-weight: 600; font-size: 0.92rem;
+  color: var(--ws-brand-secondary);
+  margin-bottom: 6px;
+}
+.ws-nolo-req { color: var(--ws-brand-primary); }
+.ws-nolo-field input[type="text"],
+.ws-nolo-field input[type="number"],
+.ws-nolo-field input[type="email"],
+.ws-nolo-field input[type="tel"],
+.ws-nolo-field select,
+.ws-nolo-field textarea {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--ws-brand-secondary);
+  background: var(--ws-bg);
+  border: 1px solid var(--ws-border-strong);
+  border-radius: var(--ws-radius);
+  padding: 11px 12px;
+  min-height: 44px;
+}
+.ws-nolo-field textarea { min-height: 80px; resize: vertical; }
+.ws-nolo-field input:focus, .ws-nolo-field select:focus, .ws-nolo-field textarea:focus {
+  outline: 3px solid var(--ws-focus); outline-offset: 1px;
+}
+.ws-nolo-field__help { font-size: 0.85rem; color: var(--ws-text-muted); margin: 4px 0 8px; }
+.ws-nolo-error { color: #a12633; font-size: 0.9rem; font-weight: 600; margin: 6px 0 0; }
+.ws-nolo-error::before { content: "⚠ "; }
+.has-error input, .has-error select, .has-error textarea { border-color: #a12633; border-width: 2px; }
+
+.ws-nolo-choices { border: none; padding: 0; margin: 0 0 20px; max-width: 720px; }
+.ws-nolo-choices legend {
+  font-family: var(--font-heading);
+  font-weight: 600; font-size: 0.92rem;
+  color: var(--ws-brand-secondary);
+  margin-bottom: 8px; padding: 0;
+}
+.ws-nolo-choice { display: flex; align-items: center; gap: 10px; min-height: 44px; }
+.ws-nolo-choice input { width: 20px; height: 20px; accent-color: var(--ws-brand-primary); flex-shrink: 0; }
+.ws-nolo-choice label { font-size: 1rem; color: var(--ws-text); cursor: pointer; padding: 10px 0; }
+
+.ws-nolo-subfields { margin: 0 0 18px; padding-left: 14px; border-left: 3px solid var(--ws-border-strong); }
+.ws-nolo-subfields--row { display: flex; gap: 16px; flex-wrap: wrap; }
+.ws-nolo-subfields--row .ws-nolo-field { flex: 1 1 150px; }
+.ws-nolo-details--form { background: var(--ws-bg); max-width: 720px; margin-bottom: 20px; }
+
+.ws-nolo-planner__nav {
+  display: flex; justify-content: space-between; gap: 14px;
+  margin-top: 26px; padding-top: 20px;
+  border-top: 1px solid var(--ws-border-strong);
+}
+.ws-nolo-planner__nav .ws-nolo-btn--primary { margin-left: auto; }
+
+/* ---------- planner results ---------- */
+.ws-nolo-brief { margin: 0 0 1.6rem; }
+.ws-nolo-brief__row {
+  display: flex; gap: 16px;
+  padding: 10px 0; border-bottom: 1px solid var(--ws-border-strong);
+}
+.ws-nolo-brief dt {
+  flex: 0 0 150px;
+  font-family: var(--font-heading);
+  font-weight: 600; font-size: 0.82rem;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--ws-text-muted);
+  padding-top: 2px;
+}
+.ws-nolo-brief dd { margin: 0; font-size: 1.1rem; color: var(--ws-brand-secondary); font-weight: 600; min-width: 0; overflow-wrap: anywhere; }
+@media (max-width: 480px) {
+  .ws-nolo-brief__row { flex-direction: column; gap: 2px; }
+  .ws-nolo-brief dt { flex-basis: auto; }
+}
+.ws-nolo-classification {
+  background: var(--ws-bg);
+  border: 1px solid var(--ws-border);
+  border-left: 4px solid var(--ws-brand-primary);
+  border-radius: var(--ws-radius);
+  padding: 20px 24px;
+  margin-bottom: 1.6rem;
+}
+.ws-nolo-classification__label {
+  font-family: var(--font-heading);
+  font-size: 0.75rem; font-weight: 700; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--ws-text-muted); margin-bottom: 4px;
+}
+.ws-nolo-classification__value {
+  font-family: var(--font-heading);
+  font-size: 1.4rem; font-weight: 800; text-transform: uppercase;
+  color: var(--ws-brand-primary); margin-bottom: 0.5rem;
+}
+.ws-nolo-classification p:last-child { margin-bottom: 0; }
+.ws-nolo-questions { margin-bottom: 1.6rem; }
+.ws-nolo-questions li { margin-bottom: 0.4em; }
+.ws-nolo-nextstep {
+  background: var(--ws-brand-secondary);
+  color: #fff;
+  border-radius: var(--ws-radius);
+  padding: 20px 24px;
+  margin-bottom: 1.4rem;
+}
+.ws-nolo-nextstep h4 { color: #fff; margin-bottom: 0.4rem; }
+.ws-nolo-nextstep p { margin: 0; font-size: 1.1rem; }
+.ws-nolo-brief-actions {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  justify-content: center;
+  margin-top: 1.4rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--ws-border-strong);
+}
+.ws-nolo-brief-actions .ws-nolo-btn--ghost {
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+  padding: 9px 15px;
+  min-height: 40px;
+  border-radius: 999px;
+  border: 1px solid var(--ws-border-strong);
+  color: var(--ws-text);
+}
+.ws-nolo-brief-actions .ws-nolo-btn--ghost:hover {
+  border-color: var(--ws-brand-primary);
+  color: var(--ws-brand-primary);
+  background: var(--ws-bg);
+}
+
+/* ---------- final CTA ---------- */
+.ws-nolo-final { background: var(--ws-bg-softer); }
+
+/* ---------- footer ---------- */
+.ws-nolo-footer {
+  background: var(--ws-brand-secondary);
+  color: var(--ws-muted-on-dark);
+  padding: clamp(40px, 6vw, 72px) 0 0;
+  margin-top: 0;
+}
+.ws-nolo-footer__grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr 1fr;
+  gap: clamp(24px, 4vw, 48px);
+  padding-bottom: 40px;
+}
+.ws-nolo-footer__brand img { filter: brightness(0) invert(1); opacity: 0.9; width: 140px; }
+.ws-nolo-footer__brand p { font-size: 0.85rem; margin-top: 14px; }
+.ws-nolo-footer__col h3 {
+  color: #fff; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.12em;
+}
+.ws-nolo-footer__col ul { list-style: none; padding: 0; margin: 0; }
+.ws-nolo-footer__col li { margin-bottom: 8px; }
+.ws-nolo-footer__col a { color: var(--ws-muted-on-dark); text-decoration: none; font-size: 0.95rem; }
+.ws-nolo-footer__col a:hover { color: #fff; }
+.ws-nolo-footer__legal {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding-top: 20px; padding-bottom: 20px;
+  font-size: 0.85rem;
+}
+.ws-nolo-footer__legal p { margin: 0; }
+@media (max-width: 880px) { .ws-nolo-footer__grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .ws-nolo-footer__grid { grid-template-columns: 1fr; } }
+
+/* ---------- modal ---------- */
+.ws-nolo-modal {
+  border: none; border-radius: 10px;
+  box-shadow: 0 12px 48px rgba(30, 30, 40, 0.25);
+  padding: 0; width: min(560px, calc(100vw - 32px));
+  max-height: min(92vh, 92dvh);
+  overflow-y: auto;
+}
+.ws-nolo-modal--planner { width: min(920px, calc(100vw - 20px)); }
+.ws-nolo-modal--planner .ws-nolo-modal__title { font-size: 1.5rem; text-transform: uppercase; }
+.ws-nolo-modal--testtrack { width: min(640px, calc(100vw - 20px)); }
+.ws-nolo-modal--testtrack .ws-nolo-modal__title { font-size: 1.4rem; text-transform: uppercase; }
+.ws-nolo-tt-steps { list-style: none; padding: 0; margin: 1.2rem 0 0.4rem; counter-reset: ttstep; }
+.ws-nolo-tt-steps li {
+  counter-increment: ttstep;
+  position: relative;
+  padding: 0 0 14px 46px;
+}
+.ws-nolo-tt-steps li::before {
+  content: "0" counter(ttstep);
+  position: absolute; left: 0; top: 1px;
+  font-family: var(--font-heading);
+  font-weight: 800; font-size: 1.05rem;
+  color: var(--ws-brand-primary);
+}
+.ws-nolo-tt-steps strong {
+  display: block;
+  font-family: var(--font-heading);
+  font-weight: 700; text-transform: uppercase;
+  font-size: 0.92rem; letter-spacing: 0.05em;
+  color: var(--ws-brand-secondary);
+}
+.ws-nolo-tt-steps span { font-size: 0.98rem; }
+.ws-nolo-final__contact { text-align: center; margin-top: 1.4rem; }
+.ws-nolo-modal::backdrop { background: rgba(60, 57, 80, 0.55); }
+.ws-nolo-modal__body { padding: clamp(24px, 4vw, 40px); }
+.ws-nolo-modal__title { font-weight: 700; color: var(--ws-brand-secondary); font-size: 1.2rem; }
+.ws-nolo-modal__close-form { position: absolute; top: 10px; right: 12px; margin: 0; }
+.ws-nolo-modal__close {
+  background: none; border: none; font-size: 1.6rem; line-height: 1;
+  color: var(--ws-text-muted); cursor: pointer; padding: 8px; min-width: 44px; min-height: 44px;
+}
+.ws-nolo-modal__close:hover { color: var(--ws-brand-primary); }
+.ws-nolo-payload {
+  background: var(--ws-bg-soft); border: 1px solid var(--ws-border);
+  border-radius: var(--ws-radius); padding: 12px;
+  font-size: 0.72rem; overflow-x: auto; max-height: 260px;
+}
+
+/* ---------- debug panel ---------- */
+.ws-nolo-debug {
+  position: fixed; bottom: 12px; left: 12px; z-index: 60;
+  background: #1e1e28; color: #d7e0e6;
+  border-radius: 8px; padding: 14px 16px;
+  font-size: 0.78rem; line-height: 1.5;
+  max-width: 280px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+}
+.ws-nolo-debug h2 { color: #fff; font-size: 0.8rem; margin: 0 0 8px; text-transform: uppercase; letter-spacing: 0.1em; }
+.ws-nolo-debug dl { margin: 0 0 10px; }
+.ws-nolo-debug dl div { display: flex; justify-content: space-between; gap: 12px; }
+.ws-nolo-debug dt { color: #8a97a3; }
+.ws-nolo-debug dd { margin: 0; text-align: right; }
+.ws-nolo-debug button {
+  background: #3c3950; color: #fff; border: none; border-radius: 4px;
+  padding: 6px 10px; margin-right: 6px; cursor: pointer; font-size: 0.72rem;
+}
+
+/* ---------- hero/tablet/mobile grid collapse ---------- */
+@media (max-width: 960px) {
+  .ws-nolo-hero__grid { grid-template-columns: 1fr; }
+  .ws-nolo-hero__visual { order: 3; }
+}
+@media (max-width: 560px) {
+  .ws-nolo-hero__ctas .ws-nolo-btn { flex: 1 1 100%; }
+  body { font-size: 1.05rem; }
+}
+
+/* ============================================================
+   PRINT — brief only (spec §15)
+   ============================================================ */
+.ws-nolo-print-brief { display: none; }
+@media print {
+  body.ws-nolo-has-brief > *:not(.ws-nolo-print-brief) { display: none !important; }
+  body.ws-nolo-has-brief .ws-nolo-print-brief {
+    display: block;
+    color: #1e1e28;
+    font-family: var(--font-body);
+    font-size: 12pt;
+  }
+  .ws-nolo-print-brief__brand {
+    font-family: var(--font-heading);
+    font-size: 18pt; font-weight: 800; color: #9b3741; margin: 0;
+  }
+  .ws-nolo-print-brief__campaign {
+    font-family: var(--font-heading);
+    font-size: 10pt; letter-spacing: 0.2em; color: #5f727f; margin: 0 0 18pt;
+  }
+  .ws-nolo-print-brief h1 {
+    font-size: 16pt; text-transform: uppercase; color: #3c3950;
+    border-bottom: 2pt solid #9b3741; padding-bottom: 6pt;
+  }
+  .ws-nolo-print-brief h2 { font-size: 12pt; text-transform: uppercase; color: #3c3950; margin-top: 14pt; }
+  .ws-nolo-print-brief dl div { display: flex; border-bottom: 0.5pt solid #d4dee1; padding: 4pt 0; }
+  .ws-nolo-print-brief dt { flex: 0 0 120pt; font-weight: 700; color: #5f727f; }
+  .ws-nolo-print-brief dd { margin: 0; }
+  .ws-nolo-print-brief__meta { font-size: 9pt; color: #5f727f; margin-top: 10pt; }
+  /* Without a brief, the normal page prints; tidy it a little. */
+  .ws-nolo-header__toggle, .ws-nolo-debug, .ws-nolo-modal, .ws-nolo-hero__ctas, .ws-nolo-btn { display: none !important; }
+  /* Printers drop the dark footer background — undo the white-logo filter. */
+  .ws-nolo-footer__brand img { filter: none; }
+}

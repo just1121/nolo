@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>No/Low Wine Dealcoholization | RO Alcohol Removal | Winesecrets</title>
+<meta name="description" content="Explore No/Low wine production with Winesecrets. Trial multiple alcohol targets, evaluate your wine first, then scale with precision RO-based dealcoholization.">
+<!--
+  LOCAL PROTOTYPE — "Use RO for Lo or No" campaign page + No/Lo Project Planner.
+  Not for production deployment. Claims marked [VERIFY ...] require Winesecrets signoff.
+  See README.md for run/debug instructions.
+-->
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "No/Low Wine Dealcoholization",
+  "provider": {
+    "@type": "Organization",
+    "name": "Winesecrets",
+    "url": "https://winesecrets.com/"
+  },
+  "serviceType": "Wine dealcoholization and alcohol adjustment",
+  "areaServed": "North America",
+  "url": "https://winesecrets.com/no-lo-wine-dealcoholization/"
+}
+</script>
+</head>
+<body>
+<a class="ws-nolo-skip" href="#main">Skip to content</a>
+
+<!-- ============ 01 HEADER ============ -->
+<header class="ws-nolo-header">
+  <div class="ws-nolo-header__inner">
+    <a class="ws-nolo-header__logo" href="https://winesecrets.com/">
+      <img src="assets/logo.png" alt="Winesecrets" width="160" height="67">
+    </a>
+    <button class="ws-nolo-header__toggle" id="ws-nolo-nav-toggle" aria-expanded="false" aria-controls="ws-nolo-nav">
+      <span class="ws-nolo-header__toggle-bar" aria-hidden="true"></span>
+      Menu
+    </button>
+    <nav class="ws-nolo-header__nav" id="ws-nolo-nav" aria-label="Winesecrets">
+      <ul>
+        <li><a href="https://winesecrets.com/about-us/">About us</a></li>
+        <li><a href="https://winesecrets.com/test-track/">Test Track</a></li>
+        <li><a href="https://winesecrets.com/alcohol-removal/">Alcohol Removal</a></li>
+        <li><a href="https://winesecrets.com/no-lo/" aria-current="page">No &amp; Low</a></li>
+        <li><a href="https://winesecrets.com/knowledge-hub/">Knowledge Hub</a></li>
+        <li><a href="https://winesecrets.com/contact-us">Contact us</a></li>
+        <li><a class="ws-nolo-btn ws-nolo-btn--primary ws-nolo-btn--sm" href="https://winesecrets.com/contact-us">Request a Quote</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ============ 02 HERO ============ -->
+<section class="ws-nolo-hero" id="top">
+  <div class="ws-nolo-container ws-nolo-hero__grid">
+    <div class="ws-nolo-hero__copy">
+      <p class="ws-nolo-eyebrow">Winesecrets No/Lo Production</p>
+      <h1 class="ws-nolo-hero__title">Use RO for Lo or No</h1>
+      <p class="ws-nolo-hero__subhead">Taste the possibilities before you commit the&nbsp;lot.</p>
+      <p>No/Lo is opening new opportunities for wine. But removing alcohol is only part of the job.</p>
+      <p>Winesecrets helps wine makers explore lower-alcohol and non-alcoholic wine through controlled trials, selective separation and precision alcohol removal. Your team can evaluate what happens to your wine before committing to commercial production.</p>
+      <div class="ws-nolo-hero__ctas">
+        <a class="ws-nolo-btn ws-nolo-btn--primary" id="ws-nolo-hero-build" href="#project-planner" data-analytics="nolo_hero_project_click">Build Your No/Lo Project</a>
+        <a class="ws-nolo-btn ws-nolo-btn--secondary" id="ws-nolo-hero-testtrack" href="#test-track" data-analytics="nolo_hero_testtrack_click">Start with Test Track</a>
+      </div>
+    </div>
+    <div class="ws-nolo-hero__visual" aria-hidden="true">
+      <div class="ws-nolo-hero__device">
+        <div class="ws-nolo-hero__device-row"><span class="ws-nolo-hero__device-word">Use</span> <span class="ws-nolo-hero__device-mark">RO</span></div>
+        <div class="ws-nolo-hero__device-arrow">&darr;</div>
+        <div class="ws-nolo-hero__device-row"><span class="ws-nolo-hero__device-word">for</span> <span class="ws-nolo-hero__device-mark">LO</span></div>
+        <div class="ws-nolo-hero__device-arrow">&darr;</div>
+        <div class="ws-nolo-hero__device-row"><span class="ws-nolo-hero__device-word">or</span> <span class="ws-nolo-hero__device-mark">NO</span></div>
+        <div class="ws-nolo-hero__device-caption">Test &rarr; Taste &rarr; Select &rarr; Scale</div>
+      </div>
+    </div>
+  </div>
+  <!-- Returning-visitor callout is injected here by js/visitor.js when a saved project exists -->
+  <div class="ws-nolo-container" id="ws-nolo-welcome-slot"></div>
+</section>
+
+<!-- ============ 03 WHY RO? (optional technical aside, collapsible) ============ -->
+<section class="ws-nolo-aside" id="process">
+  <div class="ws-nolo-container">
+    <details class="ws-nolo-collapse ws-nolo-collapse--aside" id="ws-nolo-process-details">
+      <summary>
+        <h2>Why RO?</h2>
+        <span class="ws-nolo-collapse__hint" aria-hidden="true">Separate selectively. Adjust deliberately.</span>
+      </summary>
+      <div class="ws-nolo-collapse__body">
+        <p class="ws-nolo-lead">Winesecrets uses Reverse Osmosis as the selective separation stage of its alcohol-removal workflow.</p>
+
+        <ol class="ws-nolo-diagram" aria-label="Winesecrets No/Lo process">
+          <li>Wine</li>
+          <li>RO Separation</li>
+          <li>Permeate Stream</li>
+          <li>Controlled Ethanol Removal</li>
+          <li>Reintegration</li>
+          <li>Target ABV</li>
+        </ol>
+
+        <div class="ws-nolo-prose">
+          <p>The purpose is not simply to remove alcohol. It is to make the intervention controlled and selective, then return the adjusted stream to the wine as part of the complete production workflow.</p>
+        </div>
+        <div class="ws-nolo-callout">
+          <p>&ldquo;Use RO for Lo or No&rdquo; is the campaign shorthand. RO is not the entire No/Lo process.</p>
+        </div>
+        <details class="ws-nolo-details">
+          <summary>What happens during RO separation?</summary>
+          <p>RO separates a permeate stream containing water and ethanol from larger wine components. Ethanol is then reduced from that stream through the appropriate controlled process before reintegration.</p>
+        </details>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ============ 04 MARKET CONTEXT ============ -->
+<section class="ws-nolo-section ws-nolo-section--soft" id="market" data-visitor-section="market">
+  <div class="ws-nolo-container">
+    <h2>The opportunity is real. So is the quality problem.</h2>
+    <p class="ws-nolo-lead">No/Lo is increasingly part of the wine portfolio conversation. But a consumer willing to drink less alcohol is not necessarily willing to drink lesser wine.</p>
+    <p class="ws-nolo-pullquote">Can we create a lower-alcohol wine that still deserves our name?</p>
+    <!-- Implementation note: no unsupported market-size statistics here. If added later they must be sourced, dated, and wine-specific. -->
+    <div class="ws-nolo-cardgrid ws-nolo-cardgrid--3">
+      <article class="ws-nolo-card">
+        <h3>New Occasions</h3>
+        <p>Moderation creates additional occasions for wine rather than simply replacing every full-strength occasion.</p>
+      </article>
+      <article class="ws-nolo-card">
+        <h3>Higher Expectations</h3>
+        <p>No/Lo has moved beyond novelty. Taste, quality and value matter.</p>
+      </article>
+      <article class="ws-nolo-card">
+        <h3>Brand Risk</h3>
+        <p>A No/Lo extension only helps an established winery if the finished product lives up to the parent brand.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 04 TARGET EXPLORER ============ -->
+<section class="ws-nolo-section" id="target-explorer">
+  <div class="ws-nolo-container">
+    <h2>How low are you thinking?</h2>
+    <p class="ws-nolo-lead">Choose a target range to see the production questions that become important.</p>
+    <!-- Target ranges are planning categories, not regulatory classifications. Exact ranges may be adjusted after regulatory/technical review. -->
+    <div class="ws-nolo-explorer">
+      <div class="ws-nolo-explorer__controls" role="group" aria-label="Target alcohol range" id="ws-nolo-explorer-controls">
+        <!-- buttons rendered by js/main.js from js/content.js -->
+      </div>
+      <div class="ws-nolo-explorer__panel" id="ws-nolo-explorer-panel" aria-live="polite">
+        <p class="ws-nolo-explorer__hint">Select a target range above to see what it changes about the project.</p>
+      </div>
+      <div class="ws-nolo-explorer__cta" id="ws-nolo-explorer-cta" hidden>
+        <button type="button" class="ws-nolo-btn ws-nolo-btn--primary" id="ws-nolo-explorer-build">Build My No/Lo Project</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 05 TEST TRACK (focal section) ============ -->
+<section class="ws-nolo-section ws-nolo-testtrack" id="test-track" data-visitor-section="testtrack">
+  <div class="ws-nolo-container ws-nolo-center">
+    <p class="ws-nolo-eyebrow ws-nolo-eyebrow--ondark">Winesecrets Test Track</p>
+    <h2 class="ws-nolo-testtrack__title">Your wine. Multiple targets.<br>One informed decision.</h2>
+    <p class="ws-nolo-testtrack__lead">Before you commit a commercial lot, find out what happens to the wine. <a href="https://winesecrets.com/test-track/">Test Track</a> lets your team evaluate selected alcohol targets side by side&mdash;and choose the direction by taste, not guesswork.</p>
+    <ol class="ws-nolo-testtrack__steps">
+      <li><span class="ws-nolo-testtrack__num" aria-hidden="true">01</span><strong>Define</strong><small>The wine, the lot, the goal.</small></li>
+      <li><span class="ws-nolo-testtrack__num" aria-hidden="true">02</span><strong>Test</strong><small>Trial targets at small scale.</small></li>
+      <li><span class="ws-nolo-testtrack__num" aria-hidden="true">03</span><strong>Taste</strong><small>Aroma, texture, balance, finish.</small></li>
+      <li><span class="ws-nolo-testtrack__num" aria-hidden="true">04</span><strong>Select</strong><small>The target that works.</small></li>
+      <li><span class="ws-nolo-testtrack__num" aria-hidden="true">05</span><strong>Scale</strong><small>Plan the commercial lot.</small></li>
+    </ol>
+    <button type="button" class="ws-nolo-btn ws-nolo-btn--primary ws-nolo-btn--lg" id="ws-nolo-testtrack-plan" data-analytics="nolo_testtrack_cta_clicked">Plan My Test Track</button>
+    <!-- [VERIFY OPERATIONS] No turnaround promise here. Timing language: -->
+    <p class="ws-nolo-microcopy ws-nolo-microcopy--ondark">Winesecrets will confirm trial timing during project review.</p>
+  </div>
+</section>
+
+<!-- ============ 06 NO/LO PROJECT PLANNER (opens in modal) ============ -->
+<section class="ws-nolo-section ws-nolo-planner-band" id="project-planner">
+  <div class="ws-nolo-container ws-nolo-center">
+    <p class="ws-nolo-eyebrow ws-nolo-eyebrow--onburgundy">No/Lo Project Planner</p>
+    <h2 class="ws-nolo-planner-band__title">Build Your No/Lo Project</h2>
+    <p class="ws-nolo-planner-band__lead">Create a preliminary project brief in a few minutes. You will receive a project-readiness summary and recommended questions to resolve before commercial processing.</p>
+    <button type="button" class="ws-nolo-btn ws-nolo-btn--inverse ws-nolo-btn--lg" id="ws-nolo-open-planner">Build Your No/Lo Project</button>
+    <p class="ws-nolo-microcopy ws-nolo-planner-band__note">No email is required to see your result.</p>
+  </div>
+</section>
+
+<!-- Common-concerns questions merged into the FAQ ask box below (js/content.js). -->
+
+<!-- ============ 08 FAQ / ASK A QUESTION ============ -->
+<section class="ws-nolo-section" id="faq">
+  <div class="ws-nolo-container ws-nolo-container--narrow">
+    <h2>No/Lo FAQ</h2>
+    <p class="ws-nolo-lead">You should be picky about No/Lo. Ask a question about production, our process, flavor, pricing &mdash; whatever you need to know.</p>
+    <form class="ws-nolo-ask" id="ws-nolo-ask-form" role="search">
+      <label class="ws-nolo-visually-hidden" for="ws-nolo-ask-input">Ask a No/Lo question</label>
+      <input type="text" id="ws-nolo-ask-input" autocomplete="off" spellcheck="false">
+      <button type="submit" class="ws-nolo-btn ws-nolo-btn--primary">Get an Answer</button>
+    </form>
+    <div class="ws-nolo-ask__results" id="ws-nolo-ask-results" aria-live="polite"></div>
+    <p class="ws-nolo-faq-browse-title">Or browse by topic</p>
+    <div class="ws-nolo-faq-topics" id="ws-nolo-faq-topics">
+      <!-- topic groups rendered by js/main.js from js/content.js -->
+    </div>
+  </div>
+</section>
+
+<!-- ============ 14 FINAL CTA ============ -->
+<section class="ws-nolo-section ws-nolo-final" id="final-cta">
+  <div class="ws-nolo-container ws-nolo-container--narrow ws-nolo-center">
+    <h2 id="ws-nolo-final-title">Curious what your wine could become?</h2>
+    <div class="ws-nolo-prose" id="ws-nolo-final-body">
+      <p>You do not have to decide today that you are launching a No/Lo wine.</p>
+      <p>Start by finding out what your wine tastes like at a lower alcohol level.</p>
+    </div>
+    <div class="ws-nolo-hero__ctas ws-nolo-hero__ctas--center">
+      <a class="ws-nolo-btn ws-nolo-btn--primary" id="ws-nolo-final-primary" href="#project-planner">Build a No/Lo Project</a>
+      <button type="button" class="ws-nolo-btn ws-nolo-btn--secondary" id="ws-nolo-final-review">Request a No/Lo Project Review</button>
+    </div>
+    <p class="ws-nolo-microcopy ws-nolo-final__contact">Or reach us directly: <a href="tel:+17078242022">707-824-2022</a> &middot; <a href="mailto:marketing@winesecrets.com">marketing@winesecrets.com</a></p>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ 15 FOOTER ============ -->
+<footer class="ws-nolo-footer">
+  <div class="ws-nolo-container ws-nolo-footer__grid">
+    <div class="ws-nolo-footer__col ws-nolo-footer__brand">
+      <img src="assets/logo.png" alt="Winesecrets" width="140" height="59">
+      <p>Bonded Winery: BW-CA-6093<br>Distilled Spirits Plant: DSP-CA-218</p>
+    </div>
+    <nav class="ws-nolo-footer__col" aria-label="About">
+      <h3>About Us</h3>
+      <ul>
+        <li><a href="https://winesecrets.com/about-us/">Our History</a></li>
+        <li><a href="https://winesecrets.com/our-people/">Our People</a></li>
+        <li><a href="https://winesecrets.com/our-facilities/">Our Facilities</a></li>
+        <li><a href="https://winesecrets.com/knowledge-hub/">Knowledge Hub</a></li>
+      </ul>
+    </nav>
+    <nav class="ws-nolo-footer__col" aria-label="Services">
+      <h3>Our Services</h3>
+      <ul>
+        <li><a href="https://winesecrets.com/test-track/">Test Track</a></li>
+        <li><a href="https://winesecrets.com/taint-removal/">Taint Removal</a></li>
+        <li><a href="https://winesecrets.com/alcohol-removal/">Alcohol Removal</a></li>
+        <li><a href="https://winesecrets.com/no-lo/">No &amp; Low Production</a></li>
+        <li><a href="https://winesecrets.com/crossflow-clarification/">Crossflow Clarification</a></li>
+      </ul>
+    </nav>
+    <nav class="ws-nolo-footer__col" aria-label="Engineered solutions">
+      <h3>Engineered Solutions</h3>
+      <ul>
+        <li><a href="https://winesecrets.com/ws-veolia-filtration-systems/">Filtration Systems</a></li>
+        <li><a href="https://winesecrets.com/membrane-bioreactor/">Membrane Bioreactor</a></li>
+        <li><a href="https://winesecrets.com/zero-liquid-waste-winery/">Zero Liquid Waste Winery</a></li>
+        <li><a href="https://winesecrets.com/membranes/">Membranes</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="ws-nolo-container ws-nolo-footer__legal">
+    <p>&copy; 2008&ndash;2026 Winesecrets. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<!-- ============ PLANNER MODAL ============ -->
+<dialog class="ws-nolo-modal ws-nolo-modal--planner" id="ws-nolo-planner-modal" aria-labelledby="ws-nolo-planner-modal-title">
+  <form method="dialog" class="ws-nolo-modal__close-form"><button class="ws-nolo-modal__close" aria-label="Close planner">&times;</button></form>
+  <div class="ws-nolo-modal__body">
+    <p class="ws-nolo-eyebrow">Winesecrets No/Lo Production</p>
+    <h3 class="ws-nolo-modal__title" id="ws-nolo-planner-modal-title">Build Your No/Lo Project</h3>
+    <p class="ws-nolo-microcopy" style="margin-top:0">No email is required to see your result. Progress is saved in your browser — you can close this window and come back.</p>
+    <div class="ws-nolo-planner" id="ws-nolo-planner">
+      <p class="ws-nolo-planner__storage-note" id="ws-nolo-storage-note" hidden>Your browser is not allowing local project storage. You can still use the planner, but your progress may not be saved if you leave this page.</p>
+      <div class="ws-nolo-planner__progress" id="ws-nolo-planner-progress"></div>
+      <p class="ws-nolo-visually-hidden" id="ws-nolo-planner-announce" role="status" aria-live="polite"></p>
+      <form class="ws-nolo-planner__form" id="ws-nolo-planner-form" novalidate>
+        <!-- steps rendered by js/planner.js from schema in js/content.js -->
+      </form>
+      <div class="ws-nolo-planner__results" id="ws-nolo-planner-results" hidden></div>
+    </div>
+  </div>
+</dialog>
+
+<!-- ============ TEST TRACK MODAL (mock) ============ -->
+<dialog class="ws-nolo-modal ws-nolo-modal--testtrack" id="ws-nolo-testtrack-modal" aria-labelledby="ws-nolo-tt-title">
+  <form method="dialog" class="ws-nolo-modal__close-form"><button class="ws-nolo-modal__close" aria-label="Close">&times;</button></form>
+  <div class="ws-nolo-modal__body" id="ws-nolo-tt-body">
+    <p class="ws-nolo-eyebrow">Winesecrets Test Track</p>
+    <h3 class="ws-nolo-modal__title" id="ws-nolo-tt-title">Prototype your No/Lo wine.</h3>
+    <p>Bench trials run with the same technology as full-scale treatment&mdash;so your team can taste your own wine at selected alcohol targets before committing the lot.</p>
+    <ol class="ws-nolo-tt-steps">
+      <li><strong>Request a kit</strong><span>A specialized sample shipping kit arrives with everything you need to safely send your wine.</span></li>
+      <!-- [VERIFY OPERATIONS] sample volume wording sourced from current winesecrets.com/test-track/ -->
+      <li><strong>Send a sample</strong><span>Most alcohol trials need just a single 750&nbsp;ml bottle.</span></li>
+      <li><strong>Taste the results</strong><span>Treated samples come back at the selected targets. Taste them blind and choose the level where the wine works.</span></li>
+    </ol>
+    <!-- [VERIFY OPERATIONS] No turnaround promise (live site is inconsistent: "one business day" vs "3-5 business days"). -->
+    <p class="ws-nolo-microcopy">Illustrative: one wine, trialed at 9%, 5% and 0.5%&mdash;the target is chosen by taste. Winesecrets will confirm trial timing when your trial is scheduled.</p>
+    <form id="ws-nolo-tt-form" novalidate>
+      <div class="ws-nolo-field"><label for="ws-tt-name">Name <span aria-hidden="true">*</span></label><input id="ws-tt-name" name="name" type="text" autocomplete="name" required></div>
+      <div class="ws-nolo-field"><label for="ws-tt-company">Winery / Company <span aria-hidden="true">*</span></label><input id="ws-tt-company" name="company" type="text" autocomplete="organization" required></div>
+      <div class="ws-nolo-field"><label for="ws-tt-email">Email <span aria-hidden="true">*</span></label><input id="ws-tt-email" name="email" type="email" autocomplete="email" required></div>
+      <div class="ws-nolo-field"><label for="ws-tt-phone">Phone</label><input id="ws-tt-phone" name="phone" type="tel" autocomplete="tel"></div>
+      <div class="ws-nolo-field"><label for="ws-tt-notes">About the wine and target(s)</label><textarea id="ws-tt-notes" name="notes" rows="3"></textarea></div>
+      <p class="ws-nolo-microcopy" id="ws-nolo-tt-brief-note"></p>
+      <p class="ws-nolo-error" id="ws-nolo-tt-error" role="alert" hidden>Please complete the required name, winery and email fields.</p>
+      <button type="submit" class="ws-nolo-btn ws-nolo-btn--primary">Request My Test Track Kit</button>
+    </form>
+    <p class="ws-nolo-faq-contact">Prefer to start by phone or email? Call <a href="tel:+17078242022">707-824-2022</a> or email <a href="mailto:marketing@winesecrets.com">marketing@winesecrets.com</a>.</p>
+  </div>
+  <div class="ws-nolo-modal__body" id="ws-nolo-tt-success" hidden>
+    <h3 class="ws-nolo-modal__title">Local prototype</h3>
+    <p>Your Test Track request is ready. In production, this action will send your request&mdash;with your project brief attached&mdash;to Winesecrets.</p>
+    <p class="ws-nolo-microcopy">Mock submission payload (also logged to the browser console):</p>
+    <pre class="ws-nolo-payload" id="ws-nolo-tt-payload"></pre>
+    <form method="dialog"><button class="ws-nolo-btn ws-nolo-btn--secondary">Close</button></form>
+  </div>
+</dialog>
+
+<!-- ============ LEAD CAPTURE MODAL (mock) ============ -->
+<dialog class="ws-nolo-modal" id="ws-nolo-review-modal" aria-labelledby="ws-nolo-review-title">
+  <form method="dialog" class="ws-nolo-modal__close-form"><button class="ws-nolo-modal__close" aria-label="Close">&times;</button></form>
+  <div class="ws-nolo-modal__body" id="ws-nolo-review-body">
+    <h3 id="ws-nolo-review-title" class="ws-nolo-modal__title">Complimentary No/Lo Project Review</h3>
+    <p>You've built the project. Let an experienced Winesecrets team member review the target, lot, timing and key concerns with you before you decide what to trial.</p>
+    <form id="ws-nolo-review-form" novalidate>
+      <div class="ws-nolo-field"><label for="ws-review-name">Name <span aria-hidden="true">*</span></label><input id="ws-review-name" name="name" type="text" autocomplete="name" required></div>
+      <div class="ws-nolo-field"><label for="ws-review-company">Winery / Company <span aria-hidden="true">*</span></label><input id="ws-review-company" name="company" type="text" autocomplete="organization" required></div>
+      <div class="ws-nolo-field"><label for="ws-review-email">Email <span aria-hidden="true">*</span></label><input id="ws-review-email" name="email" type="email" autocomplete="email" required></div>
+      <div class="ws-nolo-field"><label for="ws-review-phone">Phone</label><input id="ws-review-phone" name="phone" type="tel" autocomplete="tel"></div>
+      <div class="ws-nolo-field"><label for="ws-review-contact">Preferred contact</label>
+        <select id="ws-review-contact" name="preferredContact"><option value="">No preference</option><option value="email">Email</option><option value="phone">Phone</option></select>
+      </div>
+      <div class="ws-nolo-field"><label for="ws-review-note">Additional note</label><textarea id="ws-review-note" name="note" rows="3"></textarea></div>
+      <p class="ws-nolo-microcopy">Your project brief is attached to this request automatically.</p>
+      <p class="ws-nolo-error" id="ws-nolo-review-error" role="alert" hidden>Please complete the required name, winery and email fields.</p>
+      <button type="submit" class="ws-nolo-btn ws-nolo-btn--primary">Request My Project Review</button>
+    </form>
+  </div>
+  <div class="ws-nolo-modal__body" id="ws-nolo-review-success" hidden>
+    <h3 class="ws-nolo-modal__title">Local prototype</h3>
+    <p>Your project is ready. In production, this action will send the project brief to Winesecrets.</p>
+    <p class="ws-nolo-microcopy">Mock submission payload (also logged to the browser console):</p>
+    <pre class="ws-nolo-payload" id="ws-nolo-review-payload"></pre>
+    <form method="dialog"><button class="ws-nolo-btn ws-nolo-btn--secondary">Close</button></form>
+  </div>
+</dialog>
+
+<!-- ============ PRINT-ONLY BRIEF ============ -->
+<div class="ws-nolo-print-brief" id="ws-nolo-print-brief" aria-hidden="true"></div>
+
+<!-- ============ DEBUG PANEL (local only, ?debug=1) ============ -->
+<aside class="ws-nolo-debug" id="ws-nolo-debug" hidden aria-label="Prototype debug panel"></aside>
+
+<script src="js/content.js" defer></script>
+<script src="js/analytics.js" defer></script>
+<script src="js/visitor.js" defer></script>
+<script src="js/planner.js" defer></script>
+<script src="js/main.js" defer></script>
+</body>
+</html>
