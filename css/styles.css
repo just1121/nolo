@@ -192,7 +192,7 @@ ul { padding-left: 1.3em; }
 .ws-nolo-hero { padding: clamp(36px, 5vw, 64px) 0 clamp(28px, 4vw, 48px); }
 .ws-nolo-hero__grid {
   display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
-  gap: clamp(28px, 5vw, 72px); align-items: center;
+  gap: clamp(28px, 5vw, 72px); align-items: stretch;
 }
 .ws-nolo-hero__copy > p { font-size: 1.35rem; }
 .ws-nolo-hero__ctas .ws-nolo-btn { font-size: 0.9rem; padding: 14px 20px; white-space: nowrap; }
@@ -259,8 +259,10 @@ ul { padding-left: 1.3em; }
 .ws-nolo-hero__ctas { display: flex; gap: 12px; flex-wrap: nowrap; justify-content: center; margin: 1.6rem 0 0.8rem; }
 .ws-nolo-hero__ctas--center { justify-content: center; }
 
-.ws-nolo-hero__visual { display: flex; justify-content: center; }
+.ws-nolo-hero__visual { display: flex; justify-content: center; align-items: stretch; }
 .ws-nolo-hero__device {
+  display: flex; flex-direction: column;
+  width: 100%;
   background: var(--ws-bg-soft);
   border: 1px solid var(--ws-border);
   border-radius: 10px;
@@ -268,6 +270,10 @@ ul { padding-left: 1.3em; }
   padding: clamp(28px, 4vw, 52px) clamp(32px, 5vw, 64px);
   text-align: center;
   min-width: min(320px, 100%);
+}
+.ws-nolo-hero__device-stack {
+  flex: 1 1 auto;
+  display: flex; flex-direction: column; justify-content: center;
 }
 .ws-nolo-hero__device-row {
   font-family: var(--font-heading);
@@ -288,7 +294,7 @@ ul { padding-left: 1.3em; }
 }
 .ws-nolo-hero__device-arrow { color: var(--ws-border-strong); font-size: 1.55rem; line-height: 1.6; }
 .ws-nolo-hero__device-caption {
-  margin-top: 18px; padding-top: 14px;
+  margin-top: auto; padding-top: 14px;
   border-top: 1px solid var(--ws-border-strong);
   font-family: var(--font-heading);
   font-size: 0.95rem; letter-spacing: 0.14em; text-transform: uppercase;
