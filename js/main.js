@@ -171,6 +171,15 @@
         WSNoLo.planner.open();
       });
     });
+    // Every Test Track link opens the Test Track modal directly rather than
+    // scrolling to the section or leaving for winesecrets.com (nav, hero,
+    // section copy and footer links included).
+    qsa("a[href='#test-track'], a[href*='winesecrets.com/test-track']").forEach(function (el) {
+      el.addEventListener("click", function (e) {
+        e.preventDefault();
+        openTestTrackModal();
+      });
+    });
     qs("#ws-nolo-testtrack-plan").addEventListener("click", function () {
       openTestTrackModal();
     });
