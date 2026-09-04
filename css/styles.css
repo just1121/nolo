@@ -227,7 +227,7 @@ ul { padding-left: 1.3em; }
   font-weight: 600;
   margin-bottom: 1.2em;
 }
-.ws-nolo-hero__quality { margin: 1.4rem 0 0.2rem; }
+.ws-nolo-hero__quality { margin: 0 0 0.2rem; }
 .ws-nolo-hero__quality-label {
   font-family: var(--font-heading);
   font-size: 1.3rem; font-weight: 600;
@@ -249,8 +249,9 @@ ul { padding-left: 1.3em; }
 .ws-nolo-hero__copy { display: flex; flex-direction: column; }
 .ws-nolo-hero__quality { display: flex; flex-direction: column; flex: 1 1 auto; }
 .ws-nolo-hero__grid .ws-nolo-hero__benefits {
-  grid-template-columns: 1fr; gap: 14px;
+  grid-template-columns: 1fr; gap: 16px;
   flex: 1 1 auto; grid-auto-rows: 1fr;
+  margin-top: 2.3rem;
 }
 .ws-nolo-hero__grid .ws-nolo-hero__benefits li {
   padding: 18px 20px;
