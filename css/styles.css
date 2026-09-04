@@ -202,7 +202,7 @@ ul { padding-left: 1.3em; }
   max-width: 46em;
 }
 .ws-nolo-hero__ctas .ws-nolo-btn { font-size: 0.9rem; padding: 14px 20px; white-space: nowrap; }
-.ws-nolo-hero__kicker { text-align: center; }
+.ws-nolo-hero__kicker { text-align: left; }
 .ws-nolo-hero__kicker .ws-nolo-eyebrow {
   font-size: clamp(1.05rem, 1.8vw, 1.3rem);
   margin-bottom: 0.8rem;
