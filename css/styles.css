@@ -195,8 +195,12 @@ ul { padding-left: 1.3em; }
   gap: clamp(28px, 5vw, 72px); align-items: center;
 }
 .ws-nolo-hero__copy > p { font-size: 1.35rem; }
-.ws-nolo-hero__copy .ws-nolo-eyebrow { font-size: 0.95rem; }
-.ws-nolo-hero__ctas .ws-nolo-btn { font-size: 1rem; }
+.ws-nolo-hero__ctas .ws-nolo-btn { font-size: 0.9rem; padding: 14px 20px; white-space: nowrap; }
+.ws-nolo-hero__kicker { text-align: center; }
+.ws-nolo-hero__kicker .ws-nolo-eyebrow {
+  font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+  margin-bottom: clamp(18px, 2.5vw, 30px);
+}
 .ws-nolo-hero__title {
   color: var(--ws-brand-secondary);
   text-transform: uppercase;
@@ -252,7 +256,7 @@ ul { padding-left: 1.3em; }
 }
 .ws-nolo-hero__benefits span { display: block; font-size: 1.02rem; line-height: 1.45; }
 
-.ws-nolo-hero__ctas { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; margin: 1.6rem 0 0.8rem; }
+.ws-nolo-hero__ctas { display: flex; gap: 12px; flex-wrap: nowrap; justify-content: center; margin: 1.6rem 0 0.8rem; }
 .ws-nolo-hero__ctas--center { justify-content: center; }
 
 .ws-nolo-hero__visual { display: flex; justify-content: center; }
@@ -941,6 +945,7 @@ ul { padding-left: 1.3em; }
   .ws-nolo-hero__grid { grid-template-columns: 1fr; }
   .ws-nolo-hero__benefits { grid-template-columns: 1fr; }
   .ws-nolo-hero__visual { order: 3; }
+  .ws-nolo-hero__ctas { flex-wrap: wrap; }
 }
 @media (max-width: 560px) {
   .ws-nolo-hero__ctas .ws-nolo-btn { flex: 1 1 100%; }
