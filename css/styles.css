@@ -197,7 +197,8 @@ ul { padding-left: 1.3em; }
 }
 .ws-nolo-hero__quality-lorem {
   color: var(--ws-blue);
-  font-size: 1.05rem;
+  font-size: 1.3rem;
+  line-height: 1.5;
   margin: 0 0 1.1rem;
   max-width: 46em;
 }
@@ -237,7 +238,7 @@ ul { padding-left: 1.3em; }
   max-width: 46em;
 }
 .ws-nolo-hero__quality-label strong {
-  color: var(--ws-brand-primary);
+  color: inherit;
   font-weight: 800;
 }
 .ws-nolo-hero__benefits {
