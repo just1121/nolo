@@ -192,8 +192,8 @@ ul { padding-left: 1.3em; }
 /* ---------- hero ---------- */
 .ws-nolo-hero { padding: clamp(36px, 5vw, 64px) 0 clamp(28px, 4vw, 48px); }
 .ws-nolo-hero__grid {
-  display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
-  gap: clamp(28px, 5vw, 72px); align-items: stretch;
+  display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: clamp(28px, 5vw, 60px); align-items: stretch;
 }
 .ws-nolo-hero__quality-lorem {
   color: var(--ws-blue);
@@ -246,8 +246,8 @@ ul { padding-left: 1.3em; }
   gap: 12px;
 }
 /* inside the two-column hero the trio stacks as rows beside the device */
-.ws-nolo-hero__grid .ws-nolo-hero__benefits { grid-template-columns: 1fr; gap: 10px; }
-.ws-nolo-hero__grid .ws-nolo-hero__benefits li { padding: 10px 14px; }
+.ws-nolo-hero__grid .ws-nolo-hero__benefits { grid-template-columns: 1fr; gap: 14px; }
+.ws-nolo-hero__grid .ws-nolo-hero__benefits li { padding: 22px 20px; }
 .ws-nolo-hero__grid .ws-nolo-hero__benefits strong { display: inline; margin-right: 0.45em; }
 .ws-nolo-hero__grid .ws-nolo-hero__benefits span { display: inline; }
 .ws-nolo-hero__benefits li {
@@ -266,7 +266,7 @@ ul { padding-left: 1.3em; }
 }
 .ws-nolo-hero__benefits span { display: block; font-size: 1.02rem; line-height: 1.45; }
 
-.ws-nolo-hero__ctas { display: flex; gap: 12px; flex-wrap: nowrap; justify-content: center; margin: 1.6rem 0 0.8rem; }
+.ws-nolo-hero__ctas { display: flex; gap: 14px; flex-wrap: nowrap; justify-content: center; margin: clamp(24px, 3.5vw, 40px) 0 0.8rem; }
 .ws-nolo-hero__ctas--center { justify-content: center; }
 
 .ws-nolo-hero__visual { display: flex; justify-content: center; align-items: stretch; }
@@ -289,7 +289,7 @@ ul { padding-left: 1.3em; }
   font-family: var(--font-heading);
   text-transform: uppercase;
   color: var(--ws-text-muted);
-  font-size: clamp(1.3rem, 2.4vw, 1.6rem);
+  font-size: clamp(1.45rem, 2.6vw, 1.85rem);
   letter-spacing: 0.14em;
   animation: ws-nolo-fadein 0.6s ease both;
 }
@@ -298,16 +298,16 @@ ul { padding-left: 1.3em; }
 .ws-nolo-hero__device-mark {
   color: var(--ws-brand-primary);
   font-weight: 800;
-  font-size: clamp(2.65rem, 5.4vw, 3.85rem);
+  font-size: clamp(3rem, 6vw, 4.5rem);
   letter-spacing: 0.06em;
   vertical-align: middle;
 }
-.ws-nolo-hero__device-arrow { color: var(--ws-border-strong); font-size: 1.55rem; line-height: 1.6; }
+.ws-nolo-hero__device-arrow { color: var(--ws-border-strong); font-size: 1.75rem; line-height: 1.6; }
 .ws-nolo-hero__device-caption {
   margin-top: auto; padding-top: 14px;
   border-top: 1px solid var(--ws-border-strong);
   font-family: var(--font-heading);
-  font-size: 0.95rem; letter-spacing: 0.14em; text-transform: uppercase;
+  font-size: 1.05rem; letter-spacing: 0.14em; text-transform: uppercase;
   color: var(--ws-text-muted);
 }
 @keyframes ws-nolo-fadein { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
