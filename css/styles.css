@@ -209,6 +209,34 @@ ul { padding-left: 1.3em; }
   font-weight: 600;
   margin-bottom: 1.2em;
 }
+.ws-nolo-hero__quality { margin: 1.4rem 0 0.2rem; }
+.ws-nolo-hero__quality-label {
+  font-family: var(--font-heading);
+  font-size: 0.8rem; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--ws-brand-primary);
+  margin-bottom: 0.7rem;
+}
+.ws-nolo-hero__benefits {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+.ws-nolo-hero__benefits li {
+  background: var(--ws-bg-soft);
+  border: 1px solid var(--ws-border);
+  border-radius: var(--ws-radius);
+  padding: 12px 14px;
+}
+.ws-nolo-hero__benefits strong {
+  display: block;
+  font-family: var(--font-heading);
+  color: var(--ws-brand-secondary);
+  font-size: 0.95rem;
+  margin-bottom: 0.25rem;
+}
+.ws-nolo-hero__benefits span { display: block; font-size: 0.85rem; line-height: 1.45; }
+
 .ws-nolo-hero__ctas { display: flex; gap: 14px; flex-wrap: wrap; margin: 1.6rem 0 0.8rem; }
 .ws-nolo-hero__ctas--center { justify-content: center; }
 
@@ -889,6 +917,7 @@ ul { padding-left: 1.3em; }
 /* ---------- hero/tablet/mobile grid collapse ---------- */
 @media (max-width: 960px) {
   .ws-nolo-hero__grid { grid-template-columns: 1fr; }
+  .ws-nolo-hero__benefits { grid-template-columns: 1fr; }
   .ws-nolo-hero__visual { order: 3; }
 }
 @media (max-width: 560px) {

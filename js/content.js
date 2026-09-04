@@ -66,22 +66,13 @@
         prefill: { mode: "range", targetMin: 7, targetMax: 10 }
       },
       {
-        id: "3to7",
-        label: "3–<7%",
-        title: "More than a routine adjustment",
-        body: "At this level the project becomes more than a routine alcohol adjustment.",
-        questions: ["Base-wine suitability", "Mouthfeel and acidity", "Stability", "Packaging", "Labeling framework", "Sensory target"],
-        nextStep: "Build a project brief and plan controlled trials.",
-        prefill: { mode: "range", targetMin: 3, targetMax: 7 }
-      },
-      {
-        id: "05to3",
-        label: "0.5–<3%",
+        id: "05to7",
+        label: "0.5–7%",
         title: "A substantial dealcoholization project",
-        body: "This is a substantial dealcoholization project.",
-        questions: ["Aroma and palate balance", "Stability strategy", "Base-wine selection", "Residual sugar / acidity balance", "Packaging", "Labeling"],
-        nextStep: "Project review plus target-level trials.",
-        prefill: { mode: "range", targetMin: 0.5, targetMax: 3 }
+        body: "At this level the project is more than a routine alcohol adjustment — it is a substantial dealcoholization project.",
+        questions: ["Base-wine suitability", "Aroma and palate balance", "Mouthfeel and acidity", "Stability strategy", "Residual sugar / acidity balance", "Packaging", "Labeling framework"],
+        nextStep: "Build a project brief and plan controlled target-level trials.",
+        prefill: { mode: "range", targetMin: 0.5, targetMax: 7 }
       },
       {
         id: "le05",
@@ -91,15 +82,6 @@
         questions: ["Base-wine suitability", "Sensory balance", "Stability", "Packaging", "Labeling pathway"],
         nextStep: "Evaluate multiple targets before commercial processing.",
         prefill: { mode: "exact", targetABV: 0.5 }
-      },
-      {
-        id: "zero",
-        label: "0.0%",
-        title: "A 0.0% concept",
-        body: "A 0.0% concept should begin with feasibility, analytical and regulatory planning rather than assuming it follows the same path as every ≤0.5% product.",
-        questions: ["Analytical feasibility", "Definition/claim review", "Production pathway review"],
-        nextStep: "Request a project review before setting the commercial specification.",
-        prefill: { mode: "exact", targetABV: 0 }
       },
       {
         id: "notsure",
@@ -228,7 +210,7 @@
         {
           id: "labeling", topic: "working", contact: true, q: "How do labeling rules change at different ABV levels?",
           keywords: ["label", "labeling", "labels", "regulatory", "regulation", "ttb", "compliance", "legal", "rules", "tax"],
-          a: "The intended finished alcohol level may affect labeling, regulatory jurisdiction, claims and packaging decisions. Requirements differ across categories such as 0.0%, ≤0.5% and higher levels. Build the labeling review into the project timeline early rather than after processing decisions are made. Confirm current requirements with the appropriate regulatory authority and qualified advisors; this page is planning guidance, not legal advice."
+          a: "The intended finished alcohol level may affect labeling, regulatory jurisdiction, claims and packaging decisions. Requirements differ across categories such as ≤0.5% and higher levels. Build the labeling review into the project timeline early rather than after processing decisions are made. Confirm current requirements with the appropriate regulatory authority and qualified advisors; this page is planning guidance, not legal advice."
         },
         {
           id: "pricing", topic: "working", contact: true, q: "How do we get project pricing?",
@@ -279,7 +261,6 @@
           { value: "lower", label: "Lower-alcohol wine" },
           { value: "verylow", label: "Very-low-alcohol wine" },
           { value: "na", label: "≤0.5% non-alcoholic" },
-          { value: "zero", label: "0.0% concept" },
           { value: "notsure", label: "Not sure" }
         ],
         lotUnit: [
