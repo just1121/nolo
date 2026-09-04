@@ -37,7 +37,7 @@
     visitorMessages: {
       engaged: "Planning a No/Lo project? Finish your project brief.",
       welcomeBack: "Welcome back. Continue your No/Lo project.",
-      highIntentTitle: "You've done the homework. Now taste it."
+      highIntentTitle: "Enough planning. Time to taste."
     },
 
     /* ============================================
