@@ -20,6 +20,7 @@
   --ws-border-strong: #d4dee1;
   --ws-accent: #9b3741;
   --ws-focus: #3858e9;                /* accessible focus ring */
+  --ws-blue: #2f5d8a;                 /* hero statement blue */
 
   --font-heading: "Montserrat", "Helvetica Neue", Arial, sans-serif;
   --font-body: "Source Sans 3", "Source Sans Pro", Arial, sans-serif;
@@ -194,7 +195,7 @@ ul { padding-left: 1.3em; }
   display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
   gap: clamp(28px, 5vw, 72px); align-items: stretch;
 }
-.ws-nolo-hero__copy > p { font-size: 1.35rem; }
+.ws-nolo-hero__copy > p { font-size: 1.35rem; color: var(--ws-blue); }
 .ws-nolo-hero__ctas .ws-nolo-btn { font-size: 0.9rem; padding: 14px 20px; white-space: nowrap; }
 .ws-nolo-hero__kicker { text-align: center; }
 .ws-nolo-hero__kicker .ws-nolo-eyebrow {
@@ -222,7 +223,7 @@ ul { padding-left: 1.3em; }
   font-family: var(--font-heading);
   font-size: 1.3rem; font-weight: 600;
   line-height: 1.5;
-  color: var(--ws-brand-secondary);
+  color: var(--ws-blue);
   margin-bottom: 0.8rem;
   max-width: 46em;
 }
