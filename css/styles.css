@@ -190,7 +190,7 @@ ul { padding-left: 1.3em; }
 
 /* ---------- hero ---------- */
 .ws-nolo-hero { padding: clamp(36px, 5vw, 64px) 0 clamp(28px, 4vw, 48px); }
-.ws-nolo-hero__copy { max-width: 900px; }
+.ws-nolo-hero__copy { max-width: 900px; margin: 0 auto; text-align: center; }
 .ws-nolo-hero__title {
   color: var(--ws-brand-secondary);
   text-transform: uppercase;
@@ -215,6 +215,7 @@ ul { padding-left: 1.3em; }
   color: var(--ws-brand-secondary);
   margin-bottom: 0.8rem;
   max-width: 46em;
+  margin-left: auto; margin-right: auto;
 }
 .ws-nolo-hero__quality-label strong {
   color: var(--ws-brand-primary);
@@ -226,6 +227,7 @@ ul { padding-left: 1.3em; }
   gap: 12px;
 }
 .ws-nolo-hero__benefits li {
+  text-align: left;
   background: var(--ws-bg-soft);
   border: 1px solid var(--ws-border);
   border-radius: var(--ws-radius);
@@ -245,7 +247,7 @@ ul { padding-left: 1.3em; }
 
 .ws-nolo-hero__kicker { text-align: center; }
 .ws-nolo-hero__kicker .ws-nolo-eyebrow { margin-bottom: 0.6rem; }
-.ws-nolo-hero__visual { display: flex; justify-content: center; margin-bottom: clamp(28px, 4vw, 44px); }
+.ws-nolo-hero__visual { display: flex; justify-content: center; margin-top: clamp(20px, 3vw, 36px); margin-bottom: clamp(28px, 4vw, 44px); }
 .ws-nolo-hero__device {
   width: 75%;
   background: var(--ws-bg-soft);
