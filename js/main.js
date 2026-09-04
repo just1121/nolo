@@ -186,13 +186,13 @@
     qs("#ws-nolo-final-review").addEventListener("click", function () {
       WSNoLo.openReviewModal("final-cta");
     });
-    // Final CTA primary: planner modal normally; for a high-intent visitor with
-    // a completed project, "Put My Wine on the Test Track" routes to the lead
-    // form with the planner project attached (spec §44).
+    // Final CTA primary: planner modal normally; for a high-intent visitor the
+    // button is relabeled "Put My Wine on the Test Track" (refreshFinalCTA), so
+    // the click must open the Test Track modal — completed brief or not.
     var finalPrimary = qs("#ws-nolo-final-primary");
     finalPrimary.addEventListener("click", function (e) {
       e.preventDefault();
-      if (WSNoLo.visitor.tier() === "high-intent" && WSNoLo.planner.isCompleted()) {
+      if (WSNoLo.visitor.tier() === "high-intent") {
         WSNoLo.track("nolo_testtrack_cta_clicked", { cta: "final_high_intent" });
         openTestTrackModal();
       } else {
