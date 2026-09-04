@@ -245,8 +245,6 @@ ul { padding-left: 1.3em; }
 .ws-nolo-hero__ctas { display: flex; gap: 14px; flex-wrap: wrap; margin: 1.6rem 0 0.8rem; }
 .ws-nolo-hero__ctas--center { justify-content: center; }
 
-.ws-nolo-hero__kicker { text-align: center; }
-.ws-nolo-hero__kicker .ws-nolo-eyebrow { margin-bottom: 0.6rem; }
 .ws-nolo-hero__visual { display: flex; justify-content: center; margin-top: clamp(20px, 3vw, 36px); margin-bottom: clamp(28px, 4vw, 44px); }
 .ws-nolo-hero__device {
   width: 75%;
