@@ -97,6 +97,7 @@ ul { padding-left: 1.3em; }
 .ws-nolo-section--soft { background: var(--ws-bg-soft); }
 .ws-nolo-center { text-align: center; margin-top: 1.5rem; }
 .ws-nolo-lead { font-size: 1.22rem; max-width: var(--ws-reading); }
+.ws-nolo-center .ws-nolo-lead { margin-left: auto; margin-right: auto; }
 .ws-nolo-prose { max-width: var(--ws-reading); }
 .ws-nolo-microcopy { font-size: 0.85rem; color: var(--ws-text-muted); max-width: var(--ws-reading); margin-top: 1.2rem; }
 .ws-nolo-eyebrow {
@@ -356,7 +357,7 @@ ul { padding-left: 1.3em; }
 
 /* ---------- target explorer ---------- */
 .ws-nolo-explorer { margin-top: 2rem; }
-.ws-nolo-explorer__controls { display: flex; flex-wrap: wrap; gap: 10px; }
+.ws-nolo-explorer__controls { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
 .ws-nolo-explorer__btn {
   font-family: var(--font-heading);
   font-weight: 700; font-size: 0.95rem; letter-spacing: 0.04em;
@@ -383,6 +384,8 @@ ul { padding-left: 1.3em; }
   box-shadow: var(--ws-shadow);
   padding: clamp(22px, 3vw, 34px);
   max-width: 860px;
+  margin-left: auto; margin-right: auto;
+  text-align: left;
   animation: ws-nolo-fadein 0.25s ease both;
 }
 .ws-nolo-explorer__content h3 { font-weight: 700; font-size: 1.15rem; }
@@ -395,6 +398,9 @@ ul { padding-left: 1.3em; }
 .ws-nolo-explorer__content li { margin-bottom: 0.25em; }
 .ws-nolo-explorer__next { margin-bottom: 0; }
 .ws-nolo-explorer__cta { margin-top: 20px; }
+
+/* final-CTA direct-contact line: larger than standard microcopy */
+.ws-nolo-final__contact { font-size: 1.15rem; }
 
 /* ---------- test track (focal dark band) ---------- */
 .ws-nolo-testtrack { background: var(--ws-brand-secondary); color: #e6ebef; }
