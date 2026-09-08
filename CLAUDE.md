@@ -33,7 +33,10 @@ when styles change.
 - 0.0% ABV offerings were deliberately removed (Winesecrets doesn't do 0.0%);
   don't reintroduce them in explorer/planner options.
 - All Test Track links on index.html open the Test Track modal via js/main.js,
-  not the section anchor or winesecrets.com.
+  not the section anchor or winesecrets.com. `tools.html` differs by the owner's
+  direction (2026-09-08): its CTA buttons open that page's own inline modal, but
+  the "Winesecrets Test Track" eyebrow links out to
+  https://winesecrets.com/test-track/.
 
 ## Verifying
 For layout work, serve locally (`python3 -m http.server`) and check geometry in

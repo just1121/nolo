@@ -91,6 +91,10 @@
     display: block; margin-bottom: 0.2rem;
   }
   .ws-tools-callline { font-size: 0.935rem; }  /* 10% up from .ws-nolo-microcopy */
+  /* "Winesecrets Test Track" links out to the main site's Test Track page;
+     the CTA buttons still open this page's own inline modal. */
+  .ws-tools-ttlink { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+  .ws-tools-ttlink:hover { text-decoration: none; }
   /* Bottom band is the middle band's blue, grayed: same 248deg hue as
      --ws-brand-secondary #3c3950, saturation 17% -> 7%, lightness 27% -> 36%. */
   .ws-tools-stepsband { background: #575562; }
@@ -151,7 +155,7 @@
 <!-- ============ TEST TRACK ============ -->
 <section class="ws-nolo-section ws-nolo-testtrack" id="test-track">
   <div class="ws-nolo-container ws-nolo-center">
-    <p class="ws-nolo-eyebrow ws-nolo-eyebrow--ondark">Winesecrets Test Track</p>
+    <p class="ws-nolo-eyebrow ws-nolo-eyebrow--ondark"><a class="ws-tools-ttlink" href="https://winesecrets.com/test-track/">Winesecrets Test Track</a></p>
     <h2 class="ws-nolo-testtrack__title">Taste the possibilities<br>with Test Track.</h2>
     <p class="ws-nolo-testtrack__lead">Winesecrets helps wine makers explore lower-alcohol and non-alcoholic wine through controlled trials, selective separation and precision alcohol removal. Your team can evaluate the results with your wine before committing to commercial production.</p>
     <button type="button" class="ws-nolo-btn ws-nolo-btn--primary ws-nolo-btn--lg ws-tools-tt-open">Plan My Test Track</button>
