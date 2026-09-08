@@ -104,6 +104,13 @@
      --ws-brand-secondary #3c3950, saturation 17% -> 7%, lightness 27% -> 36%. */
   .ws-tools-stepsband { background: #575562; }
   .ws-tools-stepsband .ws-nolo-testtrack__steps small { color: #dae2e7; }
+  /* "How Test Track Works" was getting lost at the shared eyebrow's 0.8rem —
+     scoped here to ~2-2.5x, with the tracking eased so it doesn't sprawl. */
+  .ws-tools-stepsband .ws-nolo-eyebrow {
+    font-size: clamp(1.6rem, 3vw, 2rem);
+    letter-spacing: 0.12em;
+    margin-bottom: 1.4rem;
+  }
   .ws-tools-footer { text-align: center; padding: 26px 0; color: var(--ws-text-muted); font-size: 0.85rem; }
 </style>
 </head>
