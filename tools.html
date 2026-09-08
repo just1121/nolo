@@ -70,16 +70,27 @@
     padding: 16px 20px;
     font-size: 1.05rem;
   }
-  /* detail copy carried inside a bullet card, below its lead-in line */
+  /* detail copy carried inside a bullet card, below its lead-in line — indented
+     so it reads as nested detail rather than a run-on of the lead line */
   .ws-tools-negatives li > h3 {
     font-family: var(--font-heading);
     color: var(--ws-brand-primary);
     font-size: 1.05rem;
     font-weight: 700;
     margin: 1.1rem 0 0.5rem;
+    padding-left: 22px;
   }
-  .ws-tools-negatives li > p { margin: 0.85rem 0 0; line-height: 1.6; font-size: 1rem; }
+  .ws-tools-negatives li > p {
+    margin: 0.85rem 0 0;
+    padding-left: 22px;
+    line-height: 1.6;
+    font-size: 1rem;
+  }
   .ws-tools-negatives li p strong { color: var(--ws-brand-secondary); }
+  @media (max-width: 700px) {
+    .ws-tools-negatives li > h3,
+    .ws-tools-negatives li > p { padding-left: 0; }
+  }
   /* Direct child only: the bullet's own lead-in label ("Off Flavors", "Lost
      Aroma"). Bold terms in the detail copy sit inside <p>, so they stay inline
      instead of each breaking onto its own line. */
@@ -112,7 +123,7 @@
 <!-- ============ QUESTION HERO ============ -->
 <section class="ws-tools-hero">
   <div class="ws-nolo-container">
-    <h1>Dissatisfied with No&nbsp;Alc Wine Flavor Loss?</h1>
+    <h1>Dissatisfied with No&nbsp;Alc Wine Flavor Quality?</h1>
     <p class="ws-tools-sub">Our Alcohol Exclusion Tools will retain your wine&rsquo;s flavor.</p>
     <p class="ws-tools-tag">Use RO for No and Lo</p>
   </div>

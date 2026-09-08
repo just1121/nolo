@@ -2,7 +2,9 @@
 
 Static HTML/CSS/JS site, no build step. Two pages:
 - `index.html` — full No/Lo campaign page (target explorer, Test Track popup, project planner; content rendered from `js/content.js`).
-- `tools.html` — simplified "Alcohol Exclusion Tools" one-pager (self-contained, no page JS; Test Track CTA is a mailto).
+- `tools.html` — simplified "Alcohol Exclusion Tools" one-pager (self-contained:
+  its own inline `<style>` block and an inline Test Track modal script at the
+  bottom of the file; both CTAs open that modal).
 
 ## Deploy
 Pushing to `main` on github.com/just1121/nolo publishes GitHub Pages at
@@ -20,7 +22,11 @@ when styles change.
 
 ## Copy rules
 - Never name "spinning cone" or any competitor technology on-page; say
-  "heat-based distillation" or similar. Competitive/sensory claims carry
+  "heat-based distillation" or similar. **One deliberate exception:** the Lost
+  Aroma card on `tools.html`, where the owner supplied the RO-vs-distillation
+  copy and directed (2026-09-08) that it run verbatim, spinning cone included.
+  It carries a `[VERIFY MARKETING]` comment saying so — leave it as written, and
+  don't extend the exception to any other copy. Competitive/sensory claims carry
   `[VERIFY MARKETING]` comments, with source citations in `[SOURCES]` comments.
 - Benefits trio is fixed wording: No Heat / No Stripping / No Shrink.
 - 0.0% ABV offerings were deliberately removed (Winesecrets doesn't do 0.0%);
