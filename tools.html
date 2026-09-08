@@ -63,6 +63,10 @@
     color: var(--ws-brand-primary);
     display: block; margin-bottom: 0.2rem;
   }
+  .ws-tools-callline { font-size: 0.935rem; }  /* 10% up from .ws-nolo-microcopy */
+  /* blue-gray band instead of the slate/blue used on index.html */
+  .ws-nolo-testtrack { background: #4d6373; }
+  .ws-nolo-testtrack__steps small { color: #dae2e7; }
   .ws-tools-footer { text-align: center; padding: 26px 0; color: var(--ws-text-muted); font-size: 0.85rem; }
 </style>
 </head>
@@ -115,15 +119,8 @@
     <p class="ws-nolo-eyebrow ws-nolo-eyebrow--ondark">Winesecrets Test Track</p>
     <h2 class="ws-nolo-testtrack__title">Taste the possibilities<br>with Test Track.</h2>
     <p class="ws-nolo-testtrack__lead">Winesecrets helps wine makers explore lower-alcohol and non-alcoholic wine through controlled trials, selective separation and precision alcohol removal. Your team can evaluate the results with your wine before committing to commercial production.</p>
-    <ol class="ws-nolo-testtrack__steps">
-      <li><span class="ws-nolo-testtrack__num" aria-hidden="true">01</span><strong>Define</strong><small>The wine, the lot, the goal.</small></li>
-      <li><span class="ws-nolo-testtrack__num" aria-hidden="true">02</span><strong>Test</strong><small>Trial targets at small scale.</small></li>
-      <li><span class="ws-nolo-testtrack__num" aria-hidden="true">03</span><strong>Taste</strong><small>Aroma, texture, balance, finish.</small></li>
-      <li><span class="ws-nolo-testtrack__num" aria-hidden="true">04</span><strong>Select</strong><small>The target that works.</small></li>
-      <li><span class="ws-nolo-testtrack__num" aria-hidden="true">05</span><strong>Scale</strong><small>Plan the commercial lot.</small></li>
-    </ol>
-    <a class="ws-nolo-btn ws-nolo-btn--primary ws-nolo-btn--lg" href="mailto:marketing@winesecrets.com?subject=Test%20Track%20request">Plan My Test Track</a>
-    <p class="ws-nolo-microcopy ws-nolo-microcopy--ondark">Or call <a href="tel:+17078242022" style="color:inherit">707-824-2022</a> &middot; Explore the full <a href="index.html" style="color:inherit">Use RO for Lo or No</a> page.</p>
+    <button type="button" class="ws-nolo-btn ws-nolo-btn--primary ws-nolo-btn--lg ws-tools-tt-open">Plan My Test Track</button>
+    <p class="ws-nolo-microcopy ws-nolo-microcopy--ondark ws-tools-callline">Or call <a href="tel:+17078242022" style="color:inherit">707-824-2022</a></p>
   </div>
 </section>
 
@@ -143,6 +140,21 @@
   </div>
 </section>
 
+<!-- ============ TEST TRACK STEPS + SECOND CTA ============ -->
+<section class="ws-nolo-section ws-nolo-testtrack">
+  <div class="ws-nolo-container ws-nolo-center">
+    <p class="ws-nolo-eyebrow ws-nolo-eyebrow--ondark">How Test Track Works</p>
+    <ol class="ws-nolo-testtrack__steps">
+      <li><span class="ws-nolo-testtrack__num" aria-hidden="true">01</span><strong>Define</strong><small>The wine, the lot, the goal.</small></li>
+      <li><span class="ws-nolo-testtrack__num" aria-hidden="true">02</span><strong>Test</strong><small>Trial targets at small scale.</small></li>
+      <li><span class="ws-nolo-testtrack__num" aria-hidden="true">03</span><strong>Taste</strong><small>Aroma, texture, balance, finish.</small></li>
+      <li><span class="ws-nolo-testtrack__num" aria-hidden="true">04</span><strong>Select</strong><small>The target that works.</small></li>
+      <li><span class="ws-nolo-testtrack__num" aria-hidden="true">05</span><strong>Scale</strong><small>Plan the commercial lot.</small></li>
+    </ol>
+    <button type="button" class="ws-nolo-btn ws-nolo-btn--primary ws-nolo-btn--lg ws-tools-tt-open">Plan My Test Track</button>
+  </div>
+</section>
+
 
 </main>
 
@@ -151,6 +163,93 @@
     <p>&copy; 2008&ndash;2026 Winesecrets. All Rights Reserved. &middot; Bonded Winery BW-CA-6093 &middot; DSP-CA-218</p>
   </div>
 </footer>
+
+<dialog class="ws-nolo-modal ws-nolo-modal--testtrack" id="ws-nolo-testtrack-modal" aria-labelledby="ws-nolo-tt-title">
+  <form method="dialog" class="ws-nolo-modal__close-form"><button class="ws-nolo-modal__close" aria-label="Close">&times;</button></form>
+  <div class="ws-nolo-modal__body" id="ws-nolo-tt-body">
+    <p class="ws-nolo-eyebrow">Winesecrets Test Track</p>
+    <h3 class="ws-nolo-modal__title" id="ws-nolo-tt-title">Prototype your No/Lo wine.</h3>
+    <p>Bench trials run with the same technology as full-scale treatment&mdash;so your team can taste your own wine at selected alcohol targets before committing the lot.</p>
+    <ol class="ws-nolo-tt-steps">
+      <li><strong>Request a kit</strong><span>A specialized sample shipping kit arrives with everything you need to safely send your wine.</span></li>
+      <!-- [VERIFY OPERATIONS] sample volume wording sourced from current winesecrets.com/test-track/ -->
+      <li><strong>Send a sample</strong><span>Most alcohol trials need just a single 750&nbsp;ml bottle.</span></li>
+      <li><strong>Taste the results</strong><span>Treated samples come back at the selected targets. Taste them blind and choose the level where the wine works.</span></li>
+    </ol>
+    <!-- [VERIFY OPERATIONS] No turnaround promise (live site is inconsistent: "one business day" vs "3-5 business days"). -->
+    <p class="ws-nolo-microcopy">Illustrative: one wine, trialed at 9%, 5% and 0.5%&mdash;the target is chosen by taste. Winesecrets will confirm trial timing when your trial is scheduled.</p>
+    <form id="ws-nolo-tt-form" novalidate>
+      <div class="ws-nolo-field"><label for="ws-tt-name">Name <span aria-hidden="true">*</span></label><input id="ws-tt-name" name="name" type="text" autocomplete="name" required></div>
+      <div class="ws-nolo-field"><label for="ws-tt-company">Winery / Company <span aria-hidden="true">*</span></label><input id="ws-tt-company" name="company" type="text" autocomplete="organization" required></div>
+      <div class="ws-nolo-field"><label for="ws-tt-email">Email <span aria-hidden="true">*</span></label><input id="ws-tt-email" name="email" type="email" autocomplete="email" required></div>
+      <div class="ws-nolo-field"><label for="ws-tt-phone">Phone</label><input id="ws-tt-phone" name="phone" type="tel" autocomplete="tel"></div>
+      <div class="ws-nolo-field"><label for="ws-tt-notes">About the wine and target(s)</label><textarea id="ws-tt-notes" name="notes" rows="3"></textarea></div>
+      <p class="ws-nolo-error" id="ws-nolo-tt-error" role="alert" hidden>Please complete the required name, winery and email fields.</p>
+      <button type="submit" class="ws-nolo-btn ws-nolo-btn--primary">Request My Test Track Kit</button>
+    </form>
+    <p class="ws-nolo-faq-contact">Prefer to start by phone or email? Call <a href="tel:+17078242022">707-824-2022</a> or email <a href="mailto:marketing@winesecrets.com">marketing@winesecrets.com</a>.</p>
+  </div>
+  <div class="ws-nolo-modal__body" id="ws-nolo-tt-success" hidden>
+    <h3 class="ws-nolo-modal__title">Local prototype</h3>
+    <p>Your Test Track request is ready. In production, this action will send your request&mdash;with your project brief attached&mdash;to Winesecrets.</p>
+    <p class="ws-nolo-microcopy">Mock submission payload (also logged to the browser console):</p>
+    <pre class="ws-nolo-payload" id="ws-nolo-tt-payload"></pre>
+    <form method="dialog"><button class="ws-nolo-btn ws-nolo-btn--secondary">Close</button></form>
+  </div>
+</dialog>
+
+<script>
+/* Self-contained Test Track modal wiring (this page has no planner/visitor JS). */
+(function () {
+  var dlg = document.getElementById("ws-nolo-testtrack-modal");
+  var form = document.getElementById("ws-nolo-tt-form");
+  var body = document.getElementById("ws-nolo-tt-body");
+  var success = document.getElementById("ws-nolo-tt-success");
+  var err = document.getElementById("ws-nolo-tt-error");
+
+  Array.prototype.forEach.call(document.querySelectorAll(".ws-tools-tt-open"), function (btn) {
+    btn.addEventListener("click", function () {
+      body.hidden = false;
+      success.hidden = true;
+      if (!dlg.open) {
+        if (typeof dlg.showModal === "function") dlg.showModal();
+        else dlg.setAttribute("open", "");
+      }
+      var title = document.getElementById("ws-nolo-tt-title");
+      title.setAttribute("tabindex", "-1");
+      title.focus();
+    });
+  });
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var name = form.elements.name.value.trim();
+    var company = form.elements.company.value.trim();
+    var email = form.elements.email.value.trim();
+    if (!name || !company || !email) {
+      [["name", name], ["company", company], ["email", email]].forEach(function (pair) {
+        var input = form.elements[pair[0]];
+        if (!pair[1]) input.setAttribute("aria-invalid", "true");
+        else input.removeAttribute("aria-invalid");
+        input.closest(".ws-nolo-field").classList.toggle("has-error", !pair[1]);
+      });
+      err.hidden = false;
+      return;
+    }
+    err.hidden = true;
+    var payload = {
+      contact: { name: name, company: company, email: email, phone: form.elements.phone.value.trim(), note: form.elements.notes.value.trim() },
+      campaign: "use-ro-for-lo-or-no",
+      source: "alcohol-exclusion-tools"
+    };
+    console.log("MOCK SUBMISSION", payload);
+    body.hidden = true;
+    success.hidden = false;
+    document.getElementById("ws-nolo-tt-payload").textContent = JSON.stringify(payload, null, 2);
+    form.reset();
+  });
+})();
+</script>
 
 </body>
 </html>
