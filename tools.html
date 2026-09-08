@@ -70,8 +70,8 @@
     padding: 16px 20px;
     font-size: 1.05rem;
   }
-  /* companion panel under the Off Flavors bar — same card family, inset and
-     quieter so it reads as detail belonging to that bullet */
+  /* companion panel under a bullet — same card family, inset and quieter so it
+     reads as detail belonging to the bullet above it */
   .ws-tools-negatives li.ws-tools-detail {
     background: var(--ws-bg-soft);
     border-left-color: var(--ws-border-strong);
@@ -88,11 +88,14 @@
   }
   .ws-tools-detail p { margin: 0 0 0.85rem; line-height: 1.6; }
   .ws-tools-detail p:last-child { margin-bottom: 0; }
-  .ws-tools-detail strong { color: var(--ws-brand-secondary); display: inline; margin: 0; }
+  .ws-tools-detail strong { color: var(--ws-brand-secondary); }
   @media (max-width: 700px) {
     .ws-tools-negatives li.ws-tools-detail { margin-left: 0; }
   }
-  .ws-tools-negatives li strong {
+  /* Direct child only: the bullet's own lead-in label ("Off Flavors", "Lost
+     Aroma"). Bold terms inside a .ws-tools-detail panel sit in <p>/<h3>, so they
+     stay inline instead of each breaking onto its own line. */
+  .ws-tools-negatives li > strong {
     font-family: var(--font-heading);
     color: var(--ws-brand-primary);
     display: block; margin-bottom: 0.2rem;
@@ -176,6 +179,15 @@
         <p>These markers are exactly what a targeted lab panel can detect &mdash; giving winemakers objective, chemical evidence of heat exposure rather than relying on taste alone.</p>
       </li>
       <li><strong>Lost Aroma</strong>Volatile aromatics are stripped out and must be added back&mdash;and the round trip is never perfect.</li>
+      <!-- [VERIFY MARKETING] RO-vs-distillation mechanism copy supplied verbatim by
+           the owner, who directed on 2026-09-08 that it run as written. NOTE: this
+           names "spinning cone technology" on-page, a deliberate exception to the
+           no-competitor-tech copy rule in CLAUDE.md. Do not "fix" it silently. -->
+      <li class="ws-tools-detail">
+        <p>Reverse osmosis keeps flavor and aroma compounds where they belong: in the wine. The difference comes down to whether those compounds ever leave the wine in the first place. The membrane&rsquo;s pore size is small enough to let only water and ethanol pass through, while phenolics, tannins, pigments, and the vast majority of flavor and aroma molecules &mdash; simply too large to fit through the membrane &mdash; stay behind in the wine itself. RO doesn&rsquo;t extract these compounds and reintroduce them later &mdash; they were never removed to begin with.</p>
+        <p>Distillation-based methods work the opposite way. Vacuum distillation and spinning cone technology both lower alcohol&rsquo;s boiling point to evaporate it out of the wine &mdash; but ethanol isn&rsquo;t the only thing that vaporizes at those temperatures. Volatile esters, terpenes, and other aroma compounds share similar volatility and vaporize right alongside the alcohol and water. To compensate, these methods have to try to recapture that vaporized aroma fraction separately &mdash; in a trap or a dedicated &ldquo;flavor strip&rdquo; pass &mdash; and then blend it back into the dealcoholized wine afterward.</p>
+        <p>Once aroma compounds are stripped out, isolated, and stored separately, recovery is never complete.</p>
+      </li>
       <!-- [SOURCES] Volume: Foods/Compr. Rev. Food Sci. reviews (PMC12004437: SCC volume drops to ~75% at <0.5% ABV vs ~no loss for membrane routes).
            Body: Akhtar et al. 2025 review (PMC12004437) + IVES Technical Reviews sensory trials: SCC wines showed reduced sweetness/body, lower hedonic ratings; RO versions preferred blind. -->
       <li><strong>Lost Volume</strong>Distillation pulls water out with the alcohol&mdash;a fully dealcoholized lot can come back up to a quarter smaller.</li>
