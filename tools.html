@@ -41,7 +41,18 @@
     text-transform: uppercase;
     margin: 0;
   }
-  .ws-tools-why { text-align: left; margin-bottom: 0; }
+  /* matches .ws-tools-sub (hero flavor line) */
+  .ws-tools-why {
+    text-align: left;
+    margin-bottom: 0;
+    font-family: var(--font-heading);
+    color: var(--ws-brand-primary);
+    font-weight: 700;
+    font-style: italic;
+    font-size: clamp(1.21rem, 2.52vw, 1.68rem);
+    text-transform: none;
+    letter-spacing: normal;
+  }
   .ws-tools-benefits .ws-nolo-card { text-align: center; }
   .ws-tools-benefits .ws-nolo-card h3 { color: var(--ws-brand-secondary); font-size: 1.2rem; }
   .ws-tools-negatives h2 { text-align: center; }
