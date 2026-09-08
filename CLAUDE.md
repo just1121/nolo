@@ -23,8 +23,9 @@ when styles change.
 ## Copy rules
 - Never name "spinning cone" or any competitor technology on-page; say
   "heat-based distillation" or similar. **One deliberate exception:** the Lost
-  Aroma card on `tools.html`, where the owner supplied the RO-vs-distillation
-  copy and directed (2026-09-08) that it run verbatim, spinning cone included.
+  Aroma and Lost Volume cards on `tools.html`, where the owner supplied the
+  RO-vs-distillation copy and directed (2026-09-08) that it run verbatim,
+  spinning cone included.
   It carries a `[VERIFY MARKETING]` comment saying so — leave it as written, and
   don't extend the exception to any other copy. Competitive/sensory claims carry
   `[VERIFY MARKETING]` comments, with source citations in `[SOURCES]` comments.
