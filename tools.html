@@ -65,9 +65,9 @@
     display: block; margin-bottom: 0.2rem;
   }
   .ws-tools-callline { font-size: 0.935rem; }  /* 10% up from .ws-nolo-microcopy */
-  /* blue-gray band instead of the slate/blue used on index.html */
-  .ws-nolo-testtrack { background: #4d6373; }
-  .ws-nolo-testtrack__steps small { color: #dae2e7; }
+  /* middle Test Track band keeps the brand blue; the bottom steps band is blue-gray */
+  .ws-tools-stepsband { background: #4d6373; }
+  .ws-tools-stepsband .ws-nolo-testtrack__steps small { color: #dae2e7; }
   .ws-tools-footer { text-align: center; padding: 26px 0; color: var(--ws-text-muted); font-size: 0.85rem; }
 </style>
 </head>
@@ -142,7 +142,7 @@
 </section>
 
 <!-- ============ TEST TRACK STEPS + SECOND CTA ============ -->
-<section class="ws-nolo-section ws-nolo-testtrack">
+<section class="ws-nolo-section ws-nolo-testtrack ws-tools-stepsband">
   <div class="ws-nolo-container ws-nolo-center">
     <p class="ws-nolo-eyebrow ws-nolo-eyebrow--ondark">How Test Track Works</p>
     <ol class="ws-nolo-testtrack__steps">
