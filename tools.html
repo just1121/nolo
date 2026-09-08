@@ -65,8 +65,9 @@
     display: block; margin-bottom: 0.2rem;
   }
   .ws-tools-callline { font-size: 0.935rem; }  /* 10% up from .ws-nolo-microcopy */
-  /* middle Test Track band keeps the brand blue; the bottom steps band is blue-gray */
-  .ws-tools-stepsband { background: #4d6373; }
+  /* Bottom band is the middle band's blue, grayed: same 248deg hue as
+     --ws-brand-secondary #3c3950, saturation 17% -> 7%, lightness 27% -> 36%. */
+  .ws-tools-stepsband { background: #575562; }
   .ws-tools-stepsband .ws-nolo-testtrack__steps small { color: #dae2e7; }
   .ws-tools-footer { text-align: center; padding: 26px 0; color: var(--ws-text-muted); font-size: 0.85rem; }
 </style>
