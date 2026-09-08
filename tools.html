@@ -75,18 +75,18 @@
   /* Detail copy is collapsed so the page stays short. It opens on hover, on
      keyboard focus, and on tap (the button toggles .is-open) — hover alone
      would hide it entirely from touch devices. */
+  /* No transition here: animating grid-template-rows between 0fr and 1fr leaves
+     the panel stuck closed in browsers that cannot interpolate fr units, so the
+     disclosure opens instantly instead. */
   .ws-tools-more {
     display: grid;
     grid-template-rows: 0fr;
-    opacity: 0;
-    transition: grid-template-rows 0.28s ease, opacity 0.28s ease;
   }
   .ws-tools-more > div { overflow: hidden; }
   .ws-tools-negatives li:hover .ws-tools-more,
   .ws-tools-negatives li:focus-within .ws-tools-more,
   .ws-tools-negatives li.is-open .ws-tools-more {
     grid-template-rows: 1fr;
-    opacity: 1;
   }
   .ws-tools-more p {
     margin: 0 0 0.85rem;
@@ -116,9 +116,6 @@
   .ws-tools-negatives li.is-open .ws-tools-hint { visibility: hidden; }
   @media (max-width: 700px) {
     .ws-tools-more p { padding-left: 0; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .ws-tools-more { transition: none; }
   }
   /* Direct child only: the bullet's own lead-in label ("Off Flavors", "Lost
      Aroma"). Bold terms in the detail copy sit inside <p>, so they stay inline
