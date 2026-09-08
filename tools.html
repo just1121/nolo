@@ -70,6 +70,28 @@
     padding: 16px 20px;
     font-size: 1.05rem;
   }
+  /* companion panel under the Off Flavors bar — same card family, inset and
+     quieter so it reads as detail belonging to that bullet */
+  .ws-tools-negatives li.ws-tools-detail {
+    background: var(--ws-bg-soft);
+    border-left-color: var(--ws-border-strong);
+    margin: -4px 0 4px 26px;
+    padding: 18px 22px;
+    font-size: 1rem;
+  }
+  .ws-tools-detail h3 {
+    font-family: var(--font-heading);
+    color: var(--ws-brand-primary);
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 0 0 0.7rem;
+  }
+  .ws-tools-detail p { margin: 0 0 0.85rem; line-height: 1.6; }
+  .ws-tools-detail p:last-child { margin-bottom: 0; }
+  .ws-tools-detail strong { color: var(--ws-brand-secondary); display: inline; margin: 0; }
+  @media (max-width: 700px) {
+    .ws-tools-negatives li.ws-tools-detail { margin-left: 0; }
+  }
   .ws-tools-negatives li strong {
     font-family: var(--font-heading);
     color: var(--ws-brand-primary);
@@ -144,6 +166,15 @@
     <!-- [VERIFY MARKETING] implicit contrast with heat-based distillation dealcoholization; no competitor tech named. -->
     <ul>
       <li><strong>Off Flavors</strong>Heat contact during distillation can leave a cooked, altered character in the finished wine.</li>
+      <!-- [VERIFY MARKETING] Chemistry supplied by the client, cited to AJEV
+           (Am. J. Enol. Vitic.). Confirm citations before production use. -->
+      <li class="ws-tools-detail">
+        <h3>Heat Damage Leaves a Chemical Fingerprint</h3>
+        <p>Heat exposure doesn&rsquo;t just dull a wine&rsquo;s flavor &mdash; it changes its chemistry in measurable, predictable ways. Both red and white wines develop elevated <strong>furfural</strong> and <strong>5-hydroxymethylfurfural (HMF)</strong> &mdash; sugar-dehydration byproducts &mdash; along with faster loss of <strong>free sulfur dioxide (SO<sub>2</sub>)</strong> and increased <strong>benzaldehyde</strong> once exposed to elevated temperature (AJEV).</p>
+        <p><strong>White wines</strong> show it mainly in the aromatics: the fruity acetate esters <strong>isoamyl acetate, hexyl acetate</strong>, and <strong>2-phenylethyl acetate</strong> break down quickly, while <strong>1,1,6-trimethyl-1,2-dihydronaphthalene (TDN)</strong> and <strong>vitispirane</strong> &mdash; compounds normally associated with years of bottle age &mdash; appear prematurely, alongside faster browning.</p>
+        <p><strong>Red wines</strong> show it mainly in color and structure: <strong>monomeric anthocyanins</strong> decline while <strong>tannin-anthocyanin polymeric pigments</strong> build up, pushing color toward a more stable but duller, browner hue and coarsening tannin texture (AJEV).</p>
+        <p>These markers are exactly what a targeted lab panel can detect &mdash; giving winemakers objective, chemical evidence of heat exposure rather than relying on taste alone.</p>
+      </li>
       <li><strong>Lost Aroma</strong>Volatile aromatics are stripped out and must be added back&mdash;and the round trip is never perfect.</li>
       <!-- [SOURCES] Volume: Foods/Compr. Rev. Food Sci. reviews (PMC12004437: SCC volume drops to ~75% at <0.5% ABV vs ~no loss for membrane routes).
            Body: Akhtar et al. 2025 review (PMC12004437) + IVES Technical Reviews sensory trials: SCC wines showed reduced sweetness/body, lower hedonic ratings; RO versions preferred blind. -->
@@ -183,12 +214,6 @@
     <p class="ws-nolo-eyebrow">Winesecrets Test Track</p>
     <h3 class="ws-nolo-modal__title" id="ws-nolo-tt-title">Prototype your No/Lo wine.</h3>
     <p>Bench trials run with the same technology as full-scale treatment&mdash;so your team can taste your own wine at selected alcohol targets before committing the lot.</p>
-    <ol class="ws-nolo-tt-steps">
-      <li><strong>Request a kit</strong><span>A specialized sample shipping kit arrives with everything you need to safely send your wine.</span></li>
-      <!-- [VERIFY OPERATIONS] sample volume wording sourced from current winesecrets.com/test-track/ -->
-      <li><strong>Send a sample</strong><span>Most alcohol trials need just a single 750&nbsp;ml bottle.</span></li>
-      <li><strong>Taste the results</strong><span>Treated samples come back at the selected targets. Taste them blind and choose the level where the wine works.</span></li>
-    </ol>
     <form id="ws-nolo-tt-form" novalidate>
       <div class="ws-nolo-field"><label for="ws-tt-name">Name <span aria-hidden="true">*</span></label><input id="ws-tt-name" name="name" type="text" autocomplete="name" required></div>
       <div class="ws-nolo-field"><label for="ws-tt-company">Winery / Company <span aria-hidden="true">*</span></label><input id="ws-tt-company" name="company" type="text" autocomplete="organization" required></div>
