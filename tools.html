@@ -72,15 +72,53 @@
   }
   /* detail copy carried inside a bullet card, below its lead-in line — indented
      so it reads as nested detail rather than a run-on of the lead line */
-  .ws-tools-negatives li > p {
-    margin: 0.85rem 0 0;
+  /* Detail copy is collapsed so the page stays short. It opens on hover, on
+     keyboard focus, and on tap (the button toggles .is-open) — hover alone
+     would hide it entirely from touch devices. */
+  .ws-tools-more {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    transition: grid-template-rows 0.28s ease, opacity 0.28s ease;
+  }
+  .ws-tools-more > div { overflow: hidden; }
+  .ws-tools-negatives li:hover .ws-tools-more,
+  .ws-tools-negatives li:focus-within .ws-tools-more,
+  .ws-tools-negatives li.is-open .ws-tools-more {
+    grid-template-rows: 1fr;
+    opacity: 1;
+  }
+  .ws-tools-more p {
+    margin: 0 0 0.85rem;
     padding-left: 22px;
     line-height: 1.6;
     font-size: 1rem;
   }
+  .ws-tools-more p:first-child { margin-top: 0.85rem; }
+  .ws-tools-more p:last-child { margin-bottom: 0; }
   .ws-tools-negatives li p strong { color: var(--ws-brand-secondary); }
+  .ws-tools-negatives li.has-detail { cursor: pointer; }
+  .ws-tools-hint {
+    display: block;
+    margin-top: 0.55rem;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--ws-brand-primary);
+  }
+  .ws-tools-negatives li:hover .ws-tools-hint,
+  .ws-tools-negatives li:focus-within .ws-tools-hint,
+  .ws-tools-negatives li.is-open .ws-tools-hint { visibility: hidden; }
   @media (max-width: 700px) {
-    .ws-tools-negatives li > p { padding-left: 0; }
+    .ws-tools-more p { padding-left: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .ws-tools-more { transition: none; }
   }
   /* Direct child only: the bullet's own lead-in label ("Off Flavors", "Lost
      Aroma"). Bold terms in the detail copy sit inside <p>, so they stay inline
@@ -138,15 +176,15 @@
     <div class="ws-nolo-cardgrid ws-nolo-cardgrid--3">
       <article class="ws-nolo-card">
         <h3>No Heat</h3>
-        <p>The wine is never cooked.</p>
+          <p>The wine is never cooked.</p>
       </article>
       <article class="ws-nolo-card">
         <h3>No Stripping</h3>
-        <p>Secondary separation cannot recover all flavor compounds.</p>
+          <p>Secondary separation cannot recover all flavor compounds.</p>
       </article>
       <article class="ws-nolo-card">
         <h3>No Shrink</h3>
-        <p>Less wine lost to processing.</p>
+          <p>Less wine lost to processing.</p>
       </article>
     </div>
   </div>
@@ -171,20 +209,26 @@
     <ul>
       <!-- [VERIFY MARKETING] Chemistry supplied by the client, cited to AJEV
            (Am. J. Enol. Vitic.). Confirm citations before production use. -->
-      <li><strong>Off Flavors</strong>Heat contact during distillation leaves a chemical fingerprint: a cooked, altered character in the finished wine.
-        <p>Heat exposure doesn&rsquo;t just dull a wine&rsquo;s flavor &mdash; it changes its chemistry in measurable, predictable ways. Both red and white wines develop elevated <strong>furfural</strong> and <strong>5-hydroxymethylfurfural (HMF)</strong> &mdash; sugar-dehydration byproducts &mdash; along with faster loss of <strong>free sulfur dioxide (SO<sub>2</sub>)</strong> and increased <strong>benzaldehyde</strong> once exposed to elevated temperature (AJEV).</p>
-        <p><strong>White wines</strong> show it mainly in the aromatics: the fruity acetate esters <strong>isoamyl acetate, hexyl acetate</strong>, and <strong>2-phenylethyl acetate</strong> break down quickly, while <strong>1,1,6-trimethyl-1,2-dihydronaphthalene (TDN)</strong> and <strong>vitispirane</strong> &mdash; compounds normally associated with years of bottle age &mdash; appear prematurely, alongside faster browning.</p>
-        <p><strong>Red wines</strong> show it mainly in color and structure: <strong>monomeric anthocyanins</strong> decline while <strong>tannin-anthocyanin polymeric pigments</strong> build up, pushing color toward a more stable but duller, browner hue and coarsening tannin texture (AJEV).</p>
-        <p>These markers are exactly what a targeted lab panel can detect &mdash; giving winemakers objective, chemical evidence of heat exposure rather than relying on taste alone.</p>
+      <li class="has-detail"><strong>Off Flavors</strong>Heat contact during distillation leaves a chemical fingerprint: a cooked, altered character in the finished wine.
+        <button type="button" class="ws-tools-hint" aria-expanded="false">More detail &#9662;</button>
+        <div class="ws-tools-more"><div>
+          <p>Heat exposure doesn&rsquo;t just dull a wine&rsquo;s flavor &mdash; it changes its chemistry in measurable, predictable ways. Both red and white wines develop elevated <strong>furfural</strong> and <strong>5-hydroxymethylfurfural (HMF)</strong> &mdash; sugar-dehydration byproducts &mdash; along with faster loss of <strong>free sulfur dioxide (SO<sub>2</sub>)</strong> and increased <strong>benzaldehyde</strong> once exposed to elevated temperature (AJEV).</p>
+          <p><strong>White wines</strong> show it mainly in the aromatics: the fruity acetate esters <strong>isoamyl acetate, hexyl acetate</strong>, and <strong>2-phenylethyl acetate</strong> break down quickly, while <strong>1,1,6-trimethyl-1,2-dihydronaphthalene (TDN)</strong> and <strong>vitispirane</strong> &mdash; compounds normally associated with years of bottle age &mdash; appear prematurely, alongside faster browning.</p>
+          <p><strong>Red wines</strong> show it mainly in color and structure: <strong>monomeric anthocyanins</strong> decline while <strong>tannin-anthocyanin polymeric pigments</strong> build up, pushing color toward a more stable but duller, browner hue and coarsening tannin texture (AJEV).</p>
+          <p>These markers are exactly what a targeted lab panel can detect &mdash; giving winemakers objective, chemical evidence of heat exposure rather than relying on taste alone.</p>
+        </div></div>
       </li>
       <!-- [VERIFY MARKETING] RO-vs-distillation mechanism copy supplied verbatim by
            the owner, who directed on 2026-09-08 that it run as written. NOTE: this
            names "spinning cone technology" on-page, a deliberate exception to the
            no-competitor-tech copy rule in CLAUDE.md. Do not "fix" it silently. -->
-      <li><strong>Lost Aroma</strong>Volatile aromatics are stripped out and must be added back&mdash;and the round trip is never perfect.
-        <p><strong>Reverse osmosis keeps flavor and aroma compounds where they belong: in the wine.</strong> The difference comes down to whether those compounds ever leave the wine in the first place. The membrane&rsquo;s pore size is small enough to let only water and ethanol pass through, while phenolics, tannins, pigments, and the vast majority of flavor and aroma molecules &mdash; simply too large to fit through the membrane &mdash; stay behind in the wine itself. RO doesn&rsquo;t extract these compounds and reintroduce them later &mdash; they were never removed to begin with.</p>
-        <p><strong>Distillation-based methods work the opposite way.</strong> Vacuum distillation and spinning cone technology both lower alcohol&rsquo;s boiling point to evaporate it out of the wine &mdash; but ethanol isn&rsquo;t the only thing that vaporizes at those temperatures. Volatile esters, terpenes, and other aroma compounds share similar volatility and vaporize right alongside the alcohol and water. To compensate, these methods have to try to recapture that vaporized aroma fraction separately &mdash; in a trap or a dedicated &ldquo;flavor strip&rdquo; pass &mdash; and then blend it back into the dealcoholized wine afterward.</p>
-        <p>Once aroma compounds are stripped out, isolated, and stored separately, recovery is never complete.</p>
+      <li class="has-detail"><strong>Lost Aroma</strong>Volatile aromatics are stripped out and must be added back&mdash;and the round trip is never perfect.
+        <button type="button" class="ws-tools-hint" aria-expanded="false">More detail &#9662;</button>
+        <div class="ws-tools-more"><div>
+          <p><strong>Reverse osmosis keeps flavor and aroma compounds where they belong: in the wine.</strong> The difference comes down to whether those compounds ever leave the wine in the first place. The membrane&rsquo;s pore size is small enough to let only water and ethanol pass through, while phenolics, tannins, pigments, and the vast majority of flavor and aroma molecules &mdash; simply too large to fit through the membrane &mdash; stay behind in the wine itself. RO doesn&rsquo;t extract these compounds and reintroduce them later &mdash; they were never removed to begin with.</p>
+          <p><strong>Distillation-based methods work the opposite way.</strong> Vacuum distillation and spinning cone technology both lower alcohol&rsquo;s boiling point to evaporate it out of the wine &mdash; but ethanol isn&rsquo;t the only thing that vaporizes at those temperatures. Volatile esters, terpenes, and other aroma compounds share similar volatility and vaporize right alongside the alcohol and water. To compensate, these methods have to try to recapture that vaporized aroma fraction separately &mdash; in a trap or a dedicated &ldquo;flavor strip&rdquo; pass &mdash; and then blend it back into the dealcoholized wine afterward.</p>
+          <p>Once aroma compounds are stripped out, isolated, and stored separately, recovery is never complete.</p>
+        </div></div>
       </li>
       <!-- [SOURCES] Volume: Foods/Compr. Rev. Food Sci. reviews (PMC12004437: SCC volume drops to ~75% at <0.5% ABV vs ~no loss for membrane routes).
            Body (Lost Body card removed 2026-09-08; citation kept for reference):
@@ -194,9 +238,12 @@
            (see the copy rules in CLAUDE.md). The figures (40-65% ABV vapor, 20-36%
            total volume loss, 12-15% actual alcohol) arrived without citations;
            source them before production use. -->
-      <li><strong>Lost Volume</strong>Distillation pulls water out with the alcohol&mdash;a fully dealcoholized lot can come back up to a quarter smaller.
-        <p>Winesecrets Alcohol Exclusion includes reverse osmosis: the membrane separates water and ethanol from the wine, fresh water is metered back in at the same rate it&rsquo;s removed, so the wine&rsquo;s volume stays essentially constant throughout the process rather than shrinking with every pass. The volume of the wine attributable to ethanol is the only volume lost.</p>
-        <p>Spinning cone technology removes alcohol as a vapor, and that vapor is never pure ethanol: it typically comes off at only 40&ndash;65% ABV, meaning a comparable or greater volume of water leaves the wine right along with it. To reach a 0.5% ABV target, this can mean a total volume loss of 20&ndash;36% of the original wine &mdash; well beyond the roughly 12&ndash;15% that was actually alcohol.</p>
+      <li class="has-detail"><strong>Lost Volume</strong>Distillation pulls water out with the alcohol&mdash;a fully dealcoholized lot can come back up to a quarter smaller.
+        <button type="button" class="ws-tools-hint" aria-expanded="false">More detail &#9662;</button>
+        <div class="ws-tools-more"><div>
+          <p>Winesecrets Alcohol Exclusion includes reverse osmosis: the membrane separates water and ethanol from the wine, fresh water is metered back in at the same rate it&rsquo;s removed, so the wine&rsquo;s volume stays essentially constant throughout the process rather than shrinking with every pass. The volume of the wine attributable to ethanol is the only volume lost.</p>
+          <p>Spinning cone technology removes alcohol as a vapor, and that vapor is never pure ethanol: it typically comes off at only 40&ndash;65% ABV, meaning a comparable or greater volume of water leaves the wine right along with it. To reach a 0.5% ABV target, this can mean a total volume loss of 20&ndash;36% of the original wine &mdash; well beyond the roughly 12&ndash;15% that was actually alcohol.</p>
+        </div></div>
       </li>
     </ul>
   </div>
@@ -301,6 +348,18 @@
     success.hidden = false;
     document.getElementById("ws-nolo-tt-payload").textContent = JSON.stringify(payload, null, 2);
     form.reset();
+  });
+})();
+
+/* Collapsible detail on the "What happens if you don't use RO?" cards. CSS opens
+   them on hover and focus; this makes them reachable by tap on touch devices. */
+(function () {
+  Array.prototype.forEach.call(document.querySelectorAll(".ws-tools-negatives li.has-detail"), function (li) {
+    var btn = li.querySelector(".ws-tools-hint");
+    li.addEventListener("click", function () {
+      var open = li.classList.toggle("is-open");
+      if (btn) btn.setAttribute("aria-expanded", open ? "true" : "false");
+    });
   });
 })();
 </script>
